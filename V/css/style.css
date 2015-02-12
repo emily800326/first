@@ -1,0 +1,451 @@
+/*--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+---*/
+
+
+html, body , div  {
+   font-size: 100%;
+   background:#ffffff;
+   font-family: '微軟正黑體', sans-serif;
+}
+body a{
+	font-family: '微軟正黑體', sans-serif;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+}
+h1,h2,h3,h4,h5,h6,p,span{
+	margin: 0;
+	padding: 0;
+}
+/*--header*/
+.header {
+	border-top: 3px solid#7ACEFD;
+}
+.header-top {
+	padding: 1em;
+}
+.header-right {
+	float: right;
+	margin-top:1.3em;
+}
+.logo {
+	float: left;
+	size: 50%;
+}
+.webname {
+	padding-top:2%;
+    float: left;
+
+}
+ul.navigatoin {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul.navigatoin li {
+	display: inline-block;
+	padding: 16px;
+}
+
+ul.navigatoin li a {
+	color: #8D8D8D;
+	text-decoration: none;
+	text-align: center;
+	padding: 12px 26px;
+	font-size: 18px;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+}
+ul.navigatoin li a.active {
+	background-color: #4EBDFF;
+	color: #fff;
+}
+
+ul.navigatoin li a:hover{
+	color: #8D8D8D;
+	background-color: #4EBDFF;
+	text-decoration: none;
+	text-align: center;
+	padding: 12px 26px;
+	font-size: 18px;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+
+}
+
+.CursorPointer{	
+  cursor:pointer; /*連結的手指頭*/
+}
+
+ul.navigatoin li a:hover  {
+	color: #fff;
+}
+.line  img {
+	min-width:100%;
+
+}
+.logo  img {
+	min-width:100%;
+	margin: 0 auto;
+}
+/*--/header--*/
+
+
+/*	Animation effects
+/*-----------------------------------------------------------------------------------*/
+.b-animate-go{
+	text-decoration:none;
+	border: 3px solid#fff;
+}
+.b-animate{
+	transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	visibility: hidden;
+	font-size:1.1em;
+	font-weight:700;
+}
+.b-animate img{
+	margin-top:33%;
+	display: -webkit-inline-box;
+}
+/* lt-ie9 */
+.b-animate-go:hover .b-animate{
+	visibility:visible;
+}
+.b-from-left{
+	position:relative;
+	left:-100%;
+}
+.b-animate-go:hover .b-from-left{
+	left:0;
+}
+span.m_4{
+	font-size:14px;
+	font-weight:400;
+}
+p.m_5 {
+	margin: 2% auto 5%;
+	width: 70%;
+	color: #283A47;
+	font-size: 1.1em;
+	font-weight: 600;
+	line-height: 1.5em;
+	text-align: center;
+}
+
+/* Self Clearing Goodness */
+.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0; }
+.row:after,
+.clearfix:after {
+  clear: both; }
+.row,
+.clearfix {
+  zoom: 1; }
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+/*--contact--*/
+.contact{
+	background: url(../img/background-img.png)no-repeat 10px 10px;
+	background-size: 100%;
+	min-height: 280px;
+	padding: 2em 1em 5em;
+
+}
+
+.input{
+	font-size: 18px;
+	position:relative;
+	margin-top:50 px;
+	padding: 10px;
+	text-align: center;
+
+}
+
+.login-info {
+	background-color: #fff;
+	padding: 1.9em 0em;
+	width: 30%;
+	margin: 0 auto;
+	margin-top: 4em;
+	box-shadow: 0 0 2px#A6A6A6;
+    top:100px;
+    border-radius: 10px;
+    font-size: 16px;
+
+}
+
+
+.login-bt{
+	color: #fff;
+	background-color: #5AA0DE;
+	font-family:'微軟正黑體';
+	text-align: center;
+	padding: 12px 26px;
+	font-size: 16px;
+	border-radius:6px;
+	cursor: pointer;
+	display: block;
+	position:relative;
+	left:45%;
+
+}
+
+form p {
+	font-size: 12px;
+	color: #8D8D8D;
+}
+form {
+	width: 85%;
+	margin: 0 auto;
+	margin-top: 2em;
+}
+/*--/contact--*/
+/*----- effects-comman-css------*/
+.contenthover{
+	padding:1em;
+}
+.contenthover h3{
+	color:#FFF;
+}
+.contenthover p{
+	color:#FFF;
+	font-size:0.875em;
+	line-height:1.5em;
+}
+/*-----caption ------*/
+.caption
+{
+	text-align:left;
+	margin-left:9%;
+}
+.caption h3{
+	color:#FFF;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	font-size:1.8em;
+}
+.caption  p
+{
+	text-align:left;
+	font-size:14px;
+}
+.caption small
+{
+	display:block;
+	text-align:left;
+	font-size:14px;
+}
+p.b-animate.b-from-left.b-delay03
+{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	font-size: 21px;
+	color: #fff;
+	text-align: center;
+	margin-right: 1em;
+}
+p.b-animate.b-from-left.b-delay03 small
+{
+	display:block;
+	font-size: 16px;
+}
+h2.b-animate.b-from-left.b-delay03 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 21px;
+	font-weight: bold;
+	color: #fff;
+	text-align: left;
+	margin: 42% 0% 0% 24%;
+}
+.slider-top{
+	margin: 0 auto;
+	width: 47%;
+	text-align: center;
+}
+.slider-top p{
+	font-size: 23px;
+	font-family: 'Open Sans', sans-serif;
+	color: #FFF;
+	font-weight: 100;
+
+}
+.slider-top img{
+	border-radius: 50%;
+	text-align:center;
+}
+.slider-top p.title{
+	text-align:center;
+	color:#FFF;
+	text-transform:uppercase;
+	margin: 0 0 .5em 0;
+}
+.caption-img{
+	position: absolute;
+	top: 47%;
+	left: 43%;
+	display: none;
+	}
+.capt{
+	position:relative;
+}
+.portfolio:hover div.caption-img {
+	display: block;
+}
+.more{
+	text-align:center;
+	margin-top:2em;
+	margin-bottom:6%;
+}
+.more a{
+	text-decoration:none;
+	color:#fff;
+	background:#00C7FC;
+	padding:0.7em 3em;
+}
+.more a:hover{
+	color:#fff;
+	background:#1F2021;
+}
+.portfolio-fotter{
+	background:url("../img/race.jpg") no-repeat 0 0;
+	background-size:cover;
+	min-height:500px;
+	position:relative;
+}
+.portfolio-fotter-head{
+	position:absolute;
+	background:rgba(15, 116, 143, 0.81);
+	width:100%;
+	min-height:250px;
+	top:25%;
+}
+.portfolio-fotter-head h3{
+	color:#fff;
+	padding: 2em 0 1em 0;
+}
+.portfolio-fotter-head p{
+	color:#fff;
+	margin-bottom:4em;
+	font-size: 0.8em;
+}
+.portfolio-fotter-head a{
+	text-decoration:none;
+	color:#fff;
+	background:#1F2021;
+	padding: 0.4em 2em;
+	font-size: 0.85em;
+}
+.portfolio-fotter-head a:hover{
+	color:#fff;
+	background:#7ACEFD;
+}
+.p-button {
+	text-align: center;
+	padding-top: 1em;
+}
+.p-button a img {
+	display: inline-block;
+}
+.Donec {
+	border: none;
+	color: #fff;
+	background: #7ACEFD;
+	cursor: pointer;
+	padding: 10px 35px;
+	display: inline-block;
+	letter-spacing: 1px;
+	outline: none;
+	font-size: 23px;
+	font-weight: bold;
+	border-bottom: 3px solid#7ACEFD;
+	transition: 0.2s;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2s;
+	-o-transition: 0.2s;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	margin-top: 0em;
+}
+a.Donec.btn-1.btn1-1b:hover {
+	background-color: #21AEFE;
+	color: #fff;
+	text-decoration: none;
+}
+
+.copy-rights {
+	text-align: center;
+	margin-top: 1em;
+}
+.copy-rights p {
+	color: #8D8D8D;
+}
+.copy-rights p a {
+	color: #7ACEFD;
+}
+.copy-rights p a:hover {
+	text-decoration: none;
+	color: #F00;
+}
+.footer {
+	border-bottom: 4px solid#7ACEFD;
+	padding: 20px 10px;
+ 　 margin-top: -100px;
+}
+.btstyle{
+	cursor:pointer;
+	color: #fff;
+	background-color: #5AA0DE;
+	font-family:'微軟正黑體';
+	text-decoration: none;
+	text-align: center;
+	padding: 12px 26px;
+	font-size: 18px;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+	font-family: '微軟正黑體', sans-serif;
+	cursor: pointer;
+
+}
+
+
+/*--/portfolio--*/
