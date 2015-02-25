@@ -1,6 +1,6 @@
 <?php
-	  
-include('../../M/db.php');
+
+require_once('../../M/db.php');
 session_start();
 
 $action="";
@@ -17,7 +17,7 @@ switch($_POST["action"]){
 	   session_unset();
 	   session_destroy();
 	   echo "success";
-	   //header("location: after_header.php?no_redir=yes"); //轉址
+	  // header("location: after_header.php?no_redir=yes"); //轉址
 	   exit();
 	  break;
 
@@ -101,6 +101,109 @@ switch($_POST["action"]){
 
 	break;
 
+	case "importall":
+
+    $error 	= "";
+	$msg 	= "";
+	$fileElementName = 'fileToUpload';
+
+	if(!empty($_FILES[$fileElementName]['error']))
+	{
+		switch($_FILES[$fileElementName]['error'])
+		{
+
+			case '1':
+				$error = '上傳檔案超過php.ini所能傳送的大小。';
+				break;
+			case '2':
+				$error = '上傳檔案超過HTML form所能傳送的大小。';
+				break;
+			case '3':
+				$error = '該檔案只有部分上傳。';
+				break;
+			case '4':
+				$error = '沒有上傳檔案。';
+				break;
+
+			case '6':
+				$error = '暫時的資料夾不存在。';
+				break;
+			case '7':
+				$error = '無法寫進磁碟當中。';
+				break;
+			case '8':
+				$error = '檔案上傳終止，請檢察網絡。';
+				break;
+			case '999':
+			default:
+				$error = '系統發生錯誤。';
+		}
+	}elseif(empty($_FILES['fileToUpload']['tmp_name']) || $_FILES['fileToUpload']['tmp_name'] == 'none')
+	{
+		$error = 'No file was uploaded..';
+	}else
+	{
+
+	$handle = fopen($_FILES['fileToUpload']['tmp_name'], 'r');
+	$result = input_csv($handle); //解析csv
+	$len_result = count($result);
+	if($len_result==0){
+		$msg .= "沒有資料！";
+		exit;
+					 }
+	for ($i = 1; $i < $len_result; $i++) { //循环获取各字段值
+
+	    $name 		= iconv('big5', 'utf-8', $result[$i][0]);  //name
+		$gender 	= iconv('big5', 'utf-8', $result[$i][1]);  //gender
+		$user_id 	= $result[$i][2];                          //user_id
+		$user_pw 	= $result[$i][3];                          //user_pw
+		$identify	= $result[$i][4];                          //identify
+		$county		= iconv('big5', 'utf-8', $result[$i][5]); 	//county
+		$city		= iconv('big5', 'utf-8', $result[$i][6]); 	//city
+		$school		= iconv('big5', 'utf-8', $result[$i][7]); 	//school
+		$degree  	= $result[$i][8];                        	//degree    
+		$grade		= iconv('big5', 'utf-8', $result[$i][9]);  //grade
+		$class		= iconv('big5', 'utf-8', $result[$i][10]);   //class  
+		$stu_id		= $result[$i][11];                         //stu_id
+		//$supervisor	= iconv('big5', 'utf-8', $result[$i][12]); //supervisor
+		$birthday	= $result[$i][12];                         //birthday
+		$email		= $result[$i][13];                         //email
+		$pwhelp 	= $result[$i][14];                         //pwhelp 
+		
+
+		$data_values .= "('$name','$gender','$user_id','$user_pw','$identify','$county','$city','$school','$degree','$grade','$class','$stu_id','$birthday','$email','$pwhelp'),";
+	                           }
+	$data_values = substr($data_values,0,-1); //去掉最后一个逗号
+	fclose($handle); //关闭指针
+	$query = mysql_query("insert into stu_info (name,gender,user_id,user_pw,identify,county,city,school,degree,grade,class,stu_id,birthday,email,pwhelp) values $data_values");//輸入資料庫！
+
+
+	$school		=$_POST['school'];
+	$city		=$_POST['city'];
+	$county		=$_POST['county'];
+	$class		=$_POST['nclass'];
+	$supervisor	=$_POST['supervisor'];
+
+	$sql="INSERT INTO stu_info (school,city,county,class,supervisor) values  ('".$school."','". $city."','". $county."','". $class."','".$supervisor."')";
+	mysql_query($sql);
+
+
+	if($query){
+		$msg .= "上傳成功";
+	}else{
+		$msg .= "上傳失敗";
+	}
+
+			@unlink($_FILES['fileToUpload']);
+	}
+	echo "{";
+	echo				"error: '" . $error . "',\n";
+	echo				"msg: '" . $msg . "'\n";
+	echo "}";
+
+
+	break;
+
 	 case "login_check" :
 
       $loginid=$_POST["loginid"];
@@ -157,7 +260,18 @@ switch($_POST["action"]){
 }
 
 
-
+function input_csv($handle) { 
+    $out = array (); 
+    $n = 0; 
+    while ($data = fgetcsv($handle, 10000)) { 
+        $num = count($data); 
+        for ($i = 0; $i < $num; $i++) { 
+            $out[$n][$i] = $data[$i]; 
+        } 
+        $n++; 
+    } 
+    return $out; 
+} 
 
 
 

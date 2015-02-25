@@ -28,14 +28,14 @@ include('../../top.php');
 
 <div class="contact" >
 
-<button id="Btaddone" class="btstyle">新增一筆</button>
+<button id="Btaddone" class="btstyle" >新增一筆</button>
 <button id="Btaddall" class="btstyle" >批次匯入</button>
+<button id="Btdelete" class="btstyle" >刪除</button>
 
     <div class="tabledata">
          <table id ="table_s"  >
             <thead>
                  <tr>      
-                        <th ></th>         
                         <th >使用者帳號</th>
                         <th >使用者密碼</th>
                         <th >姓名</th>
@@ -63,11 +63,12 @@ include('../../top.php');
                 $row = mysql_fetch_assoc($get_pic_qry);
 
                 //$total_id[$count_id]=$row['ID'];
-                //$count_id++;
+                //$count_id++;  
+                //<td><input type="checkbox" id="select" value=""></input></td>
 
                 echo '
                         <tr>
-                            <td><input type="checkbox" id="select" value=""></input></td>
+                          
                             <td>'.$row['user_id'].'</td>
                             <td>'.$row['user_pw'].'</td>
                             <td>'.$row['name'].'</td>
@@ -104,7 +105,7 @@ include('../../top.php');
 			<table>
             <tr>
     			<th>帳號:</th>
-   				 <td><input type="text"  id="user_id" placeholder="4~10碼英文數字"></td>
+   				 <td><input type="text"  id="user_id" placeholder="4~10碼英文數字" ></td>
    			</tr>
             <tr>
     			<th>密碼:</th>
@@ -162,8 +163,8 @@ include('../../top.php');
    			</tr> 	
     		<tr>
     			<th>學校地區:</th>
-   				 <?php echo ' <td><input type="text"  id="city" value="'.$_SESSION['city'].'" disabled></td>
-   				     <tr><th><td><input type="text"  id="county" value="'.$_SESSION['county'].'" disabled></td></th></tr>'; ?>
+   				 <?php echo ' <td><input type="text"  id="allcity" value="'.$_SESSION['city'].'" disabled></td>
+   				     <tr><th><td><input type="text"  id="allcounty" value="'.$_SESSION['county'].'" disabled></td></th></tr>'; ?>
    			</tr>  					
    			<tr>
     			<th>年級:</th>
@@ -172,14 +173,14 @@ include('../../top.php');
     		<tr>
     			<th>班級:</th>
    				 <td><input type="text"  id="allclass"  ></td>
-   			</tr>   		
+   			</tr>
    			<tr>
     			<th>指導老師:</th>
    				 <?php echo ' <td><input type="text"  id="allsupervisor" value="'.$_SESSION['name'].'" disabled></td>'; ?>
    			</tr>
    			<tr>
     			<th>匯入csv檔案:</th>
-   				 <td><input type="file"  id="allfile"  ></td>
+   				 <td><input type="file"  id="file"  ></td>
    			</tr>  
 
 			</table>

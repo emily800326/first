@@ -81,6 +81,7 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
                  },
 
             success: function(data) {
+            	console.log(data);
               if (data == "success") {
                 alert("成功登出!歡迎再次登入系統!!!");
                 location.href = "/first/index.php";

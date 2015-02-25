@@ -51,7 +51,7 @@ $(document).ready(function(){//多搜尋列表
 
 
 			aoColumns: [
-			            null,
+			            //null,
 						{ type: "text" },//user_id
 						{ type: "text" },//user_pw
 						{ type: "text" },//name
@@ -60,12 +60,16 @@ $(document).ready(function(){//多搜尋列表
 						{ type: "text" },//county,city
 						{ type: "text" }, //class.grade
 						{ type: "text" }, //email
+		     			
 		     			]
 
 		});
 
 
-   });		
+   });	
+
+
+
 
 $("#addone").hide();
 $("#addall").hide();
@@ -76,7 +80,7 @@ $("#Btaddone").click(function(){
             	
                 //height:500,
                 width:400,
-                modal:true,	     //開起遮罩
+                modal:true,	     //開遮罩
                 resizable:false,
        
 
@@ -171,69 +175,35 @@ $("#Btaddone").click(function(){
 $("#Btaddall").click(function(){
 
    $("#addall").dialog({
-            	
+
                 //height:500,
                 width:550,
                 modal:true,	     //開起遮罩
                 resizable:false,
-       
-
                 buttons:{
                 "確定":function(){
 
-            
-            var numengtest = /[a-zA-Z0-9]/;
-            
-            if(numengtest.test($("#user_id").val() ) != true){
-		    alert('帳號需改成英文數字格式，請重新輸入！');
-		    return ;
-            }if(numengtest.test($("#user_pw").val() ) != true){
-		    alert('密碼需改成英文數字格式，請重新輸入！');
-		    return ;
-            }else if($("#user_id").val().length < 4 ||$("#user_id").val().length > 10){
-			alert("帳號字數不符，請重新輸入！");
-			return;
-			}else if($("#user_pw").val().length < 6||$("#user_pw").val().length > 10 ){
-			alert("密碼字數不符，請重新輸入！");
-			return;
-	    	}else if($("#user_pw").val() !==$("#user_pw2").val() ){
-			alert("請確認密碼等兩個欄位有輸入正確！");
-			return;
-		    }else if($("#user_id").val() 	== "" ||
-			$("#user_pw").val() 		    == "" ||
-			$("#user_pw2").val() 		    == "" ||
-			$("#name").val() 	            == "" ||
-			$("#gender").val()  	        == "" ||
-			$("#grade").val() 			    == "" ||
-			$("#school").val() 	    		== "" ||
-			$("#city").val() 	    		== "" ||
-			$("#county").val() 	    		== "" ||			
-			$("#class").val() 	    		== "" ||
-			$("#stu_id").val() 	    		== "" ||
-			$("#supervisor").val() 	    	== ""  ){
+            if($("#allschool").val() 	== "" ||
+			$("#allcity").val() 	    		== "" ||
+			$("#allcounty").val() 	    		== "" ||
+			$("#allclass").val() 	    		== "" ||
+			$("#allsupervisor").val() 	    	== ""  ){
 			alert("請確認資料是否確實填寫！");
 			return;
             }
-
             $.ajax({ //ajax傳值
                url:"../../register/api/register.php",
                type:"POST",
                data:{
 
 				  identify: 	"S",//學生身分
-	              user_id:  	$("#user_id").val()  ,
-				  user_pw:		$("#user_pw").val()  ,
-				  name:			$("#name").val() 	 ,
-				  gender:		$("#gender").val()   ,
-				  grade:		$("#grade").val()    ,
-				  school:		$("#school").val() 	 ,
-				  city:			$("#city").val()     ,
-				  county:		$("#county").val() 	 ,
-				  nclass:		$("#class").val() 	 ,
-				  stu_id:		$("#stu_id").val() 	 ,
-				  supervisor: 	$("#supervisor").val(),
 
-                  action:"s_addone"
+				  school:		$("#allschool").val() 	 ,
+				  city:			$("#allcity").val()      ,
+				  county:		$("#allcounty").val() 	 ,
+				  nclass:		$("#allclass").val() 	 ,
+				  supervisor: 	$("#allsupervisor").val(),
+                  action:"importall"
 
                },
                error:function(){
@@ -243,16 +213,15 @@ $("#Btaddall").click(function(){
 
                },
                success:function(data){
-                  // $("#grid").trigger("reloadGrid");
-
+          
                  console.log(data);  //印出傳送的資料
 
                   if(data=='add'){
-					alert("註冊成功，感謝您的加入!");
-					window.location.reload();
+					alert("批次匯入成功!");
+					//window.location.reload();
 
                   }else{
-                  	alert("帳號重複囉!!! 請重新註冊。");
+                  	alert("請重新上傳資料。");
                   }
 
                  // console.log($("#students_number").val());
