@@ -30,7 +30,7 @@ include('../../top.php');
 
 <button id="Btaddone" class="btstyle" >新增一筆</button>
 <button id="Btaddall" class="btstyle" >批次匯入</button>
-<button id="Btdelete" class="btstyle" >刪除</button>
+
 
     <div class="tabledata">
          <table id ="table_s"  >
@@ -44,6 +44,7 @@ include('../../top.php');
                         <th >學校地區</th>
                         <th >年級/班級</th>    
                         <th >email</th>
+                        <th >刪除</th>
 				</tr>
           </thead>
 
@@ -78,18 +79,18 @@ include('../../top.php');
 					                echo '老師';
 					              }else if($row['identify']=="S"){
 					                 echo '學生';
-					              }       
+					              }
 	                 echo' </td>
                             <td>'.$row['city']."-".$row['county'].'</td>
-                            <td>';       	         
+                            <td>';
 					              if($row['grade']==""||$row['class']==""){
 					                echo ' ';
 					              }else {
 					                 echo $row['grade']."年".$row['class']."班";
-					              }       
+					              }
 	                  echo'</td>
                             <td>'.$row['email'].'</td>
-
+                            <td><button onclick="delCheck()"><a href=../api/delete.php?id='.$row['id'].' >刪除</a></button></td>
                         </tr>';
 
                  }
@@ -180,7 +181,7 @@ include('../../top.php');
    			</tr>
    			<tr>
     			<th>匯入csv檔案:</th>
-   				 <td><input type="file"  id="file"  ></td>
+   				 <td><input type="file"  id="allfile" name="allfile" ></td>
    			</tr>  
 
 			</table>

@@ -43,6 +43,9 @@ $(document).ready(function(){
 
      });
 
+
+
+
 $(document).ready(function(){//多搜尋列表
     $('#table_s').dataTable().columnFilter({
 
@@ -51,7 +54,6 @@ $(document).ready(function(){//多搜尋列表
 
 
 			aoColumns: [
-			            //null,
 						{ type: "text" },//user_id
 						{ type: "text" },//user_pw
 						{ type: "text" },//name
@@ -60,7 +62,7 @@ $(document).ready(function(){//多搜尋列表
 						{ type: "text" },//county,city
 						{ type: "text" }, //class.grade
 						{ type: "text" }, //email
-		     			
+		     			null,
 		     			]
 
 		});
@@ -236,9 +238,16 @@ $("#Btaddall").click(function(){
 });
 
 
-
-
-
-                
-
  });
+
+function delCheck()
+        {
+            var flag=window.confirm("你確認要刪除嗎?");
+            if(flag==true)
+			{
+			}
+			else if(flag==false){
+			window.event.returnValue=false;
+			}
+
+        }

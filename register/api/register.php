@@ -105,7 +105,7 @@ switch($_POST["action"]){
 
     $error 	= "";
 	$msg 	= "";
-	$fileElementName = 'fileToUpload';
+	$fileElementName = 'allfile';
 
 	if(!empty($_FILES[$fileElementName]['error']))
 	{
@@ -138,13 +138,13 @@ switch($_POST["action"]){
 			default:
 				$error = '系統發生錯誤。';
 		}
-	}elseif(empty($_FILES['fileToUpload']['tmp_name']) || $_FILES['fileToUpload']['tmp_name'] == 'none')
+	}elseif(empty($_FILES['allfile']['tmp_name']) || $_FILES['allfile']['tmp_name'] == 'none')
 	{
 		$error = 'No file was uploaded..';
 	}else
 	{
 
-	$handle = fopen($_FILES['fileToUpload']['tmp_name'], 'r');
+	$handle = fopen($_FILES['allfile']['tmp_name'], 'r');
 	$result = input_csv($handle); //解析csv
 	$len_result = count($result);
 	if($len_result==0){
