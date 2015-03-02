@@ -2,11 +2,10 @@
 
 <?php
 
-include('../api/db.php');
+//include('../api/db.php');
+include('../../M/db.php');
 
-    $IIID=$_GET["id"];
-
-    
+    $IIID=$_GET["id"];  
     $sql = "DELETE FROM `user_info` WHERE  `id`='". $IIID."'";
     $qry = mysql_query($sql, $link) or die(mysql_error());
     //$row = mysql_fetch_assoc($qry);

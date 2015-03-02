@@ -10,7 +10,7 @@ if(isset($_POST["action"])){
 }else{
 	$action="";
 }
-
+$data_values="";
 switch($_POST["action"]){
       
       case "logout" :      
@@ -105,11 +105,11 @@ switch($_POST["action"]){
 
     $error 	= "";
 	$msg 	= "";
-	$fileElementName = 'allfile';
+	$fileElementId = 'allfile';
 
-	if(!empty($_FILES[$fileElementName]['error']))
+	if(!empty($_FILES[$fileElementId]['error']))
 	{
-		switch($_FILES[$fileElementName]['error'])
+		switch($_FILES[$fileElementId]['error'])
 		{
 
 			case '1':
@@ -171,25 +171,23 @@ switch($_POST["action"]){
 		$pwhelp 	= $result[$i][14];                         //pwhelp 
 		
 
-		$data_values .= "('$name','$gender','$user_id','$user_pw','$identify','$county','$city','$school','$degree','$grade','$class','$stu_id','$birthday','$email','$pwhelp'),";
-	                           }
-	$data_values = substr($data_values,0,-1); //去掉最后一个逗号
+	
 	fclose($handle); //关闭指针
-	$query = mysql_query("insert into stu_info (name,gender,user_id,user_pw,identify,county,city,school,degree,grade,class,stu_id,birthday,email,pwhelp) values $data_values");//輸入資料庫！
-
-
+	
 	$school		=$_POST['school'];
 	$city		=$_POST['city'];
 	$county		=$_POST['county'];
 	$class		=$_POST['nclass'];
 	$supervisor	=$_POST['supervisor'];
 
-	$sql="INSERT INTO stu_info (school,city,county,class,supervisor) values  ('".$school."','". $city."','". $county."','". $class."','".$supervisor."')";
-	mysql_query($sql);
+	$sql="INSERT INTO user_info (name,gender,user_id,user_pw,identify,school,city,county,class,supervisor,degree,grade,stu_id,birthday,email,pwhelp) values  ('".$name."','".$gender."','".$user_id."','".$user_pw."','".$identify."','".$school."','". $city."','".$county."','".$class."','".$supervisor."','".$degree."','".$grade."','".$stu_id."','".$birthday."','".$email."','".$pwhelp."')";
+
+
+	$query=mysql_query($sql);
 
 
 	if($query){
-		$msg .= "上傳成功";
+		$msg .= "success";
 	}else{
 		$msg .= "上傳失敗";
 	}

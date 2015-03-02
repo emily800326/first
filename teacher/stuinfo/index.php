@@ -7,12 +7,14 @@
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/cupertino/jquery-ui.css">
 <link href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" rel="stylesheet">
 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/jquery-1.8.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.js"></script>
 <script type="text/javascript" src="../../V/js/jquery.dataTables.columnFilter.js"></script>
+<script type="text/javascript" src="../../V/js/ajaxfileupload.js"></script>
 <script type="text/javascript" src="../../teacher/api/teacher.js"></script>
 <script type="text/javascript" src="../../V/js/aj-address.js"></script>
+
 
 <title>科展初探系統</title>
 

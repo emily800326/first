@@ -144,8 +144,7 @@ $("#Btaddone").click(function(){
                   action:"s_addone"
 
                },
-               error:function(){
-
+               error:function(e){
                   alert("error add");
                   return;
 
@@ -193,9 +192,14 @@ $("#Btaddall").click(function(){
 			alert("請確認資料是否確實填寫！");
 			return;
             }
-            $.ajax({ //ajax傳值
+            $.ajaxFileUpload({ //ajax傳值
+
                url:"../../register/api/register.php",
-               type:"POST",
+                secureuri:false,
+				fileElementId:'allfile',
+				dataType: 'json',
+				type: 'POST',
+
                data:{
 
 				  identify: 	"S",//學生身分
@@ -205,11 +209,13 @@ $("#Btaddall").click(function(){
 				  county:		$("#allcounty").val() 	 ,
 				  nclass:		$("#allclass").val() 	 ,
 				  supervisor: 	$("#allsupervisor").val(),
+				  
+
                   action:"importall"
 
                },
-               error:function(){
-
+               error:function(e){
+                  alert(e.responseText);
                   alert("error add");
                   return;
 
