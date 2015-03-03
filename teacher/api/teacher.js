@@ -202,37 +202,42 @@ $("#Btaddall").click(function(){
 
                data:{
 
-				  identify: 	"S",//學生身分
+				  //identify: 	"S",//學生身分
 
 				  school:		$("#allschool").val() 	 ,
 				  city:			$("#allcity").val()      ,
 				  county:		$("#allcounty").val() 	 ,
+				  grade:		$("#allgrade").val() 	 ,
 				  nclass:		$("#allclass").val() 	 ,
 				  supervisor: 	$("#allsupervisor").val(),
-				  
 
                   action:"importall"
 
                },
-               error:function(e){
-                  alert(e.responseText);
-                  alert("error add");
+               error: function (data, status, e){
+                  alert(e);
+                 // alert("error add");
                   return;
 
                },
-               success:function(data){
-          
-                 console.log(data);  //印出傳送的資料
+               success:function(data,status){
 
-                  if(data=='add'){
-					alert("批次匯入成功!");
-					//window.location.reload();
+                  console.log(data);  //印出傳送的資料
 
-                  }else{
-                  	alert("請重新上傳資料。");
-                  }
+         		 if(typeof(data.error) != 'undefined')
+					{
+						if(data.error != '')
+						{
+							alert(data.error);
+						}else
+						{
+							alert(data.msg);
+							window.location.reload();
+						}
+					}
+               
 
-                 // console.log($("#students_number").val());
+
                }
             })
             $(this).dialog("close");

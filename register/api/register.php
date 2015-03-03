@@ -102,12 +102,10 @@ switch($_POST["action"]){
 	break;
 
 	case "importall":
-
-    $error 	= "";
-	$msg 	= "";
-	$fileElementId = 'allfile';
-
-	if(!empty($_FILES[$fileElementId]['error']))
+     $error ="";
+     $msg   ="";
+     $fileElementId = 'allfile';
+ 	if(!empty($_FILES[$fileElementId]['error']))
 	{
 		switch($_FILES[$fileElementId]['error'])
 		{
@@ -147,60 +145,58 @@ switch($_POST["action"]){
 	$handle = fopen($_FILES['allfile']['tmp_name'], 'r');
 	$result = input_csv($handle); //解析csv
 	$len_result = count($result);
+       
+
+
 	if($len_result==0){
 		$msg .= "沒有資料！";
 		exit;
-					 }
+	}
 	for ($i = 1; $i < $len_result; $i++) { //循环获取各字段值
-
-	    $name 		= iconv('big5', 'utf-8', $result[$i][0]);  //name
-		$gender 	= iconv('big5', 'utf-8', $result[$i][1]);  //gender
-		$user_id 	= $result[$i][2];                          //user_id
-		$user_pw 	= $result[$i][3];                          //user_pw
-		$identify	= $result[$i][4];                          //identify
-		$county		= iconv('big5', 'utf-8', $result[$i][5]); 	//county
-		$city		= iconv('big5', 'utf-8', $result[$i][6]); 	//city
-		$school		= iconv('big5', 'utf-8', $result[$i][7]); 	//school
-		$degree  	= $result[$i][8];                        	//degree    
-		$grade		= iconv('big5', 'utf-8', $result[$i][9]);  //grade
-		$class		= iconv('big5', 'utf-8', $result[$i][10]);   //class  
-		$stu_id		= $result[$i][11];                         //stu_id
-		//$supervisor	= iconv('big5', 'utf-8', $result[$i][12]); //supervisor
-		$birthday	= $result[$i][12];                         //birthday
-		$email		= $result[$i][13];                         //email
-		$pwhelp 	= $result[$i][14];                         //pwhelp 
+	    $a 				= iconv('big5', 'utf-8', $result[$i][0]); //name
+		$b 				= iconv('big5', 'utf-8', $result[$i][1]); //gender
+		$c 				= $result[$i][2];						//user_id	
+		$d 				= $result[$i][3];						//user_pw
+		$e 				= $result[$i][4];						//identify
+		$f 				= $result[$i][5];						//stu_id
+		$g 				= $result[$i][6];						//birthday
+		$h 				= $result[$i][7];						//email
+		$school  		=$_POST['school'];
+		$city		    =$_POST['city'];
+		$county		    =$_POST['county'];
+		$grade		    =$_POST['grade'];
+		$class		    =$_POST['nclass'];
+		$supervisor	    =$_POST['supervisor'];	
+		//$name = iconv('big5', 'utf-8', $result[$i][0]); //!!big5轉utf8
+		//$sex = iconv('big5', 'utf-8', $result[$i][1]);
+		//$age = $result[$i][2];
 		
+		$data_values .= "('$school','$city','$county','$grade','$class','$supervisor','$a','$b','$c','$d','$e','$f','$g','$h'),";
+	}
 
-	
+	$data_values = substr($data_values,0,-1); //去掉最后一个逗号
 	fclose($handle); //关闭指针
-	
-	$school		=$_POST['school'];
-	$city		=$_POST['city'];
-	$county		=$_POST['county'];
-	$class		=$_POST['nclass'];
-	$supervisor	=$_POST['supervisor'];
+	$query = mysql_query("insert into user_info (school,city,county,grade,class,supervisor,name,gender,user_id,user_pw,identify,stu_id,birthday,email) values $data_values");//輸入資料庫！
 
-	$sql="INSERT INTO user_info (name,gender,user_id,user_pw,identify,school,city,county,class,supervisor,degree,grade,stu_id,birthday,email,pwhelp) values  ('".$name."','".$gender."','".$user_id."','".$user_pw."','".$identify."','".$school."','". $city."','".$county."','".$class."','".$supervisor."','".$degree."','".$grade."','".$stu_id."','".$birthday."','".$email."','".$pwhelp."')";
-
-
-	$query=mysql_query($sql);
 
 
 	if($query){
-		$msg .= "success";
+		$msg .= "批次上傳成功!";
 	}else{
-		$msg .= "上傳失敗";
+		$msg .= "批次上傳失敗。";
 	}
+
+
 
 			@unlink($_FILES['fileToUpload']);
 	}
 	echo "{";
 	echo				"error: '" . $error . "',\n";
 	echo				"msg: '" . $msg . "'\n";
-	echo "}";
+	echo "}";    
 
-
-	break;
+   
+   	break;
 
 	 case "login_check" :
 
