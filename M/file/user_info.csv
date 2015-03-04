@@ -1,0 +1,2 @@
+*name(姓名),gender(性別 男/女),*user_id(帳號),*user_pw(密碼),*identify(老師T/學生S),stu_id(學號),birthday(生日ex:20150511),email,"(刪除第二行,並開始依表格資料填寫,*為必填資料)",,,,,,
+測試A,男,testa,testa,S,510130,19910101,test@gmail.com,,,,,,, 

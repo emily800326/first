@@ -19,6 +19,11 @@
 
 <?php
 include('../top.php');
+if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="S"){ 
+		   //因為需要用到JS所以不能放在head之前
+			echo "<script>$('body').html('');alert('請先登入系統，確認權限！');window.location.href='/first/register/'</script>";
+
+		}
 ?>
 
 

@@ -9,6 +9,7 @@
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 
 
+
 <title>科展初探系統</title>
 
 </head>
@@ -18,7 +19,13 @@
 
 
 <?php
-include('../top.php');
+		include('../top.php');
+		if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="T"){ 
+		   //因為需要用到JS所以不能放在head之前
+			echo "<script>$('body').html('');alert('請先登入系統，確認權限！');window.location.href='/first/register/'</script>";
+
+		}
+
 ?>
 
 

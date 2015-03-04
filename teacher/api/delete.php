@@ -10,7 +10,7 @@ include('../../M/db.php');
     $qry = mysql_query($sql, $link) or die(mysql_error());
     //$row = mysql_fetch_assoc($qry);
 
-    echo '<meta http-equiv=REFRESH CONTENT=0.01;url=../stuinfo/index.php>'; //跳轉回原頁面
+    echo '<meta http-equiv=REFRESH CONTENT=0.001;url=../stuinfo/index.php>'; //跳轉回原頁面
 
 
 ?>

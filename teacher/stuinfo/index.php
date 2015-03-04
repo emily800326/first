@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -23,10 +24,14 @@
 <body>
 
 
-
 <?php
-include('../../top.php');
-?>
+		include('../../top.php');
+		if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="T"){ 
+		   //因為需要用到JS所以不能放在head之前
+			echo "<script>$('body').html('');alert('請先登入系統，確認權限！');window.location.href='/first/register/'</script>";
+
+		}
+	?>
 
 <div class="contact" >
 
@@ -184,12 +189,15 @@ include('../../top.php');
    			<tr>
     			<th>匯入csv檔案:</th>
    				 <td><input type="file"  id="allfile" name="allfile" ></td>
-   			</tr>  
+   			</tr> 
+   			<tr>
+   			    <th></th>
+   			    <td><a href="../../M/file/user_info.csv" style="color:red" >csv檔案範例下載<a></td>
+   			</tr> 
 
 			</table>
 		</form>
 	</div>
-
 
 
 
