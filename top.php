@@ -11,19 +11,23 @@ if( isset($_SESSION['user_id']) )//登入
             $(document).ready(function (){
             	$("#Btlogin").hide();
             	$("#Btlogout").show();
-            	$("#Btuserinfo").show();		
+            	$("#Btuserinfo").show();
             })</script>';
 
 		   if ($_SESSION['identify']=="T"){//教師身分
 		           echo '<script type="text/javascript">
 		            $(document).ready(function (){
 		            	$("#Btstuinfo").show();
+		            	$("#Bteditask").show();
+		            	$("#Btgrade").show();
 		            })</script>';
 
 		   }elseif ($_SESSION['identify']=="S") {//學生身分
 		   	        echo '<script type="text/javascript">
 		            $(document).ready(function (){
 		                $("#Btstuinfo").hide();
+		                $("#Bteditask").hide();
+		            	$("#Btgrade").hide();
 		            })</script>'; 
            }
 
@@ -37,9 +41,11 @@ if( isset($_SESSION['user_id']) )//登入
     	   { echo '<script type="text/javascript">
             $(document).ready(function (){
             	$("#Btlogin").show();
-            	$("#Btlogout").hide();	
+            	$("#Btlogout").hide();
             	$("#Btuserinfo").hide();
             	$("#Btstuinfo").hide();
+            	$("#Bteditask").hide();
+            	$("#Btgrade").hide();
 	
             })</script>';}
 
@@ -113,13 +119,15 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
 						  <li><a href="/first/index.php" class="active">首頁</a></li>
 						  <li><a href="/first/news">最新消息</a></li>
 						  <li><a href="/first/student/task">實驗任務</a></li>
+						  <li><a href="/first/teacher/editask" id="Bteditask">編輯任務</a></li>
+						  <li><a href="/first/teacher/grade" id="Btgrade">任務評分</a></li>
 						  <li><a href="/first/teacher/stuinfo" id="Btstuinfo">學生資料管理</a></li>
 						  <li><a href="/first/userinfo" id="Btuserinfo">';echo"".$d_name."";echo'</a></li>
 						  <li><a href="/first/register" class="active" id="Btlogin">登入</a></li>
 						  <li><a class="active CursorPointer" id="Btlogout">登出</a></li>
-						</ul>  
+						</ul>
 					</div>
-				</div>					
+				</div>
 		</div>
 	</div>
 </div>
@@ -131,6 +139,7 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
 	
 
   ';
+
 
 
 ?>
