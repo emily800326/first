@@ -174,12 +174,45 @@ p.m_5 {
   height: 0;
 }
 /*--contact--*/
+.topword{
+   background:#4472C8;
+   color:white;
+   text-align: center;
+   font-size: 26px;
+
+}
+
+.Bttask{
+    text-align: center;
+    background-color:white;
+    color:black;
+    padding: 2em 0em;
+    margin: 10px;
+	width: 20%;
+	display: inline-block;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.Bttask:hover{
+    text-align: center;
+    background-color:#4EBDFF;
+    color:white;   
+    cursor: pointer;
+}
+
 .contact{
 	background: url(../img/background-img.png)no-repeat 10px 10px;
 	background-size: 100%;
 	min-height: 280px;
 	padding: 2em 1em 5em;
-
+    color:black;
+    text-align: left;
+    font-size: 16px;
 }
 
 .input{
@@ -242,133 +275,7 @@ form {
 	font-size:0.875em;
 	line-height:1.5em;
 }
-/*-----caption ------*/
-.caption
-{
-	text-align:left;
-	margin-left:9%;
-}
-.caption h3{
-	color:#FFF;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
-	font-size:1.8em;
-}
-.caption  p
-{
-	text-align:left;
-	font-size:14px;
-}
-.caption small
-{
-	display:block;
-	text-align:left;
-	font-size:14px;
-}
-p.b-animate.b-from-left.b-delay03
-{
-	font-family: 'Open Sans', sans-serif;
-	font-weight: bold;
-	font-size: 21px;
-	color: #fff;
-	text-align: center;
-	margin-right: 1em;
-}
-p.b-animate.b-from-left.b-delay03 small
-{
-	display:block;
-	font-size: 16px;
-}
-h2.b-animate.b-from-left.b-delay03 {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 21px;
-	font-weight: bold;
-	color: #fff;
-	text-align: left;
-	margin: 42% 0% 0% 24%;
-}
-.slider-top{
-	margin: 0 auto;
-	width: 47%;
-	text-align: center;
-}
-.slider-top p{
-	font-size: 23px;
-	font-family: 'Open Sans', sans-serif;
-	color: #FFF;
-	font-weight: 100;
-
-}
-.slider-top img{
-	border-radius: 50%;
-	text-align:center;
-}
-.slider-top p.title{
-	text-align:center;
-	color:#FFF;
-	text-transform:uppercase;
-	margin: 0 0 .5em 0;
-}
-.caption-img{
-	position: absolute;
-	top: 47%;
-	left: 43%;
-	display: none;
-	}
-.capt{
-	position:relative;
-}
-.portfolio:hover div.caption-img {
-	display: block;
-}
-.more{
-	text-align:center;
-	margin-top:2em;
-	margin-bottom:6%;
-}
-.more a{
-	text-decoration:none;
-	color:#fff;
-	background:#00C7FC;
-	padding:0.7em 3em;
-}
-.more a:hover{
-	color:#fff;
-	background:#1F2021;
-}
-.portfolio-fotter{
-	background:url("../img/race.jpg") no-repeat 0 0;
-	background-size:cover;
-	min-height:500px;
-	position:relative;
-}
-.portfolio-fotter-head{
-	position:absolute;
-	background:rgba(15, 116, 143, 0.81);
-	width:100%;
-	min-height:250px;
-	top:25%;
-}
-.portfolio-fotter-head h3{
-	color:#fff;
-	padding: 2em 0 1em 0;
-}
-.portfolio-fotter-head p{
-	color:#fff;
-	margin-bottom:4em;
-	font-size: 0.8em;
-}
-.portfolio-fotter-head a{
-	text-decoration:none;
-	color:#fff;
-	background:#1F2021;
-	padding: 0.4em 2em;
-	font-size: 0.85em;
-}
-.portfolio-fotter-head a:hover{
-	color:#fff;
-	background:#7ACEFD;
-}
+/*-----footer ------*/
 .p-button {
 	text-align: center;
 	padding-top: 1em;

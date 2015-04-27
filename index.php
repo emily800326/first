@@ -28,7 +28,6 @@ HOME SWEET HOME
 
 </div>
 
-
 <?php
 include('footer.php');
 ?>

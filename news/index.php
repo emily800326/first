@@ -23,7 +23,7 @@ include('../top.php');
 
 
 <div class="contact">
-NEWSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+系統施工中!!!
 
 </div>
 
