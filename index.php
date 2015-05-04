@@ -23,8 +23,23 @@ include('top.php');
 
 
 <div class="contact">
-welcome join~~~
-HOME SWEET HOME
+		<?php
+		 include('/M/db.php');
+		$get_pic_sql = " SELECT * FROM `indexpage` order by `posttime` DESC LIMIT 0,1" ;
+		                                                            //LIMIT 0,1抓取一筆
+		$get_pic_qry = mysql_query($get_pic_sql, $link) or die(mysql_error());
+		$total_records=mysql_num_rows($get_pic_qry); // 取得記錄筆數
+	
+		for ($i=0;$i<$total_records;$i++) {
+		                $row = mysql_fetch_assoc($get_pic_qry);
+		echo '
+				
+		       '.$row['article'].'
+		      
+		      ';
+		}
+
+		?>
 
 </div>
 

@@ -34,8 +34,8 @@
 	?>
 <div class="topword">學生資料管理</div>
 <div class="contact" >
-<button id="Btaddone" class="btstyle" >新增一筆</button>
-<button id="Btaddall" class="btstyle" >批次匯入</button>
+<button id="Btaddone" class="BT2" >新增一筆</button>
+<button id="Btaddall" class="BT2" >批次匯入</button>
 
 
     <div class="tabledata">

@@ -1,10 +1,9 @@
 <?php
-session_start();
+	session_start();
      $d_user_id  ='';
      $d_user_pw  ='';
      $d_name='';
      $d_identify='';
-
 
 if( isset($_SESSION['user_id']) )//登入
    { echo '<script type="text/javascript">
@@ -20,6 +19,7 @@ if( isset($_SESSION['user_id']) )//登入
 		            	$("#Btstuinfo").show();
 		            	$("#Bteditask").show();
 		            	$("#Btgrade").show();
+		            	$("#Btupdate").show();
 		            })</script>';
 
 		   }elseif ($_SESSION['identify']=="S") {//學生身分
@@ -28,6 +28,7 @@ if( isset($_SESSION['user_id']) )//登入
 		                $("#Btstuinfo").hide();
 		                $("#Bteditask").hide();
 		            	$("#Btgrade").hide();
+		            	$("#Btupdate").hide();
 		            })</script>'; 
            }
 
@@ -46,6 +47,7 @@ if( isset($_SESSION['user_id']) )//登入
             	$("#Btstuinfo").hide();
             	$("#Bteditask").hide();
             	$("#Btgrade").hide();
+            	$("#Btupdate").hide();
             })</script>';}
 
 
@@ -120,7 +122,8 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
 						  <li><a href="/first/student/task">實驗任務</a></li>
 						  <li><a href="/first/teacher/editask" id="Bteditask">編輯任務</a></li>
 						  <li><a href="/first/teacher/grade" id="Btgrade">任務評分</a></li>
-						  <li><a href="/first/teacher/stuinfo" id="Btstuinfo">學生資料管理</a></li>
+						  <li><a href="/first/teacher/update" id="Btupdate">更新</a></li>
+						  <li><a href="/first/teacher/stuinfo" id="Btstuinfo">學生資料</a></li>
 						  <li><a href="/first/userinfo" id="Btuserinfo">';echo"".$d_name."";echo'</a></li>
 						  <li><a href="/first/register" class="active" id="Btlogin">登入</a></li>
 						  <li><a class="active CursorPointer" id="Btlogout">登出</a></li>

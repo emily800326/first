@@ -32,7 +32,7 @@ include('../../../top.php');
 <div class="contact">
 assigntask
 
-<input id="Btback" type="button"  onClick="javascript:history.back(1)" value="返回" />
+<input id="Btback" type="button"  class="BT" onClick="javascript:history.back(1)" value="返回" />
 
 </div>
 

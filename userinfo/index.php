@@ -93,8 +93,8 @@ include('../top.php');
 	          <td >'.$row['recent_login_time'].' </td>
 	         </tr> 
         </table><br/>
-           <button  id="change_t_info">修改資料</button>
-           <button  id="changepw"  >變更密碼</button>
+           <button  id="change_t_info"  class="BT2">修改資料</button>
+           <button  id="changepw"   class="BT2">變更密碼</button>
         ';
         } elseif($d_identify=="S") {
 

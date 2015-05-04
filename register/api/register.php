@@ -214,6 +214,7 @@ switch($_POST["action"]){
   		//更新最後登入time
       $sql = "UPDATE `user_info` SET `recent_login_time` = NOW() WHERE `user_id` = '".$loginid."'";
       mysql_query($sql, $link) or die(mysql_error());
+         
 
 	  if(mysql_num_rows($result) !==0){
 
@@ -231,12 +232,11 @@ switch($_POST["action"]){
 		  $_SESSION['birthday'] =$row['birthday'];		//生日
 		  $_SESSION['email']  	=$row['email'];			//email
           
-          
+          $name = $row['name'];
 
-		  if($row['identify']=="T"){
+		  if($row['identify']=='T'){
 
-		     echo "T";
-
+		     echo 'T';
 
           }
 		  else {
@@ -246,6 +246,7 @@ switch($_POST["action"]){
 	  else{
 	      echo "NO";
 	  }
+	  
 
      break;
 

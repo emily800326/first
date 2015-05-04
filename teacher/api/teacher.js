@@ -1,6 +1,6 @@
 ﻿
 $(function() {
- $('.address').ajaddress({ city: "台東縣", county: "池上鄉" });  
+ //$('.address').ajaddress({ city: "台東縣", county: "池上鄉" });  
 
 $(document).ready(function(){
 
@@ -248,6 +248,66 @@ $("#Btaddall").click(function(){
 
 });
 
+   $("#postnews").click(function(){
+   	
+   	if($("#newsp").val() 	        == "" ||
+	$("#topic").val() 	    		== "" ){
+	alert("請確認資料是否確實填寫！");
+	return;
+    }
+   	//發表文章送出鈕
+   	var ct= CKEDITOR.instances.editor1.getData();
+      $.ajax({
+	     url: "/first/C/data.php",
+		 type: "POST",
+		 data:
+		 {
+		    newsp:$("#newsp").val(),
+		    data:ct,
+		    topic:$("#topic").val(),
+		    action:'savenews'
+		 },
+
+		 error:function(){
+		    alert("error");
+		    return;
+		 },
+		 success:function(data){
+			    alert("已更新最新消息!");
+			    location.href="/first/news";
+         }
+       })
+
+   })
+
+   $("#postindex").click(function(){
+   	//發表文章送出鈕
+   	var ct= CKEDITOR.instances.editor2.getData();
+      $.ajax({
+	     url: "/first/C/data.php",
+		 type: "POST",
+		 data:
+		 {
+		    indexp:$("#indexp").val(),
+		    data:ct,
+		    action:'saveindex'
+		 },
+
+		 error:function(){
+		    alert("error");
+		    return;
+		 },
+
+		 success:function(data){
+			    alert("已更新首頁!");
+			    location.href="/first/";
+         }
+       })
+
+   })
+
+
+
 
  });
 
@@ -262,3 +322,15 @@ function delCheck()
 			}
 
         }
+
+function sure()
+        {
+            var flag=window.confirm("你確認要送出資料嗎?");
+            if(flag==true)
+			{
+			}
+			else if(flag==false){
+			window.event.returnValue=false;
+			}
+
+        } 

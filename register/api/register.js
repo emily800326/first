@@ -25,7 +25,7 @@
 
 
 		 	console.log(data);
-			console.log(data.length);
+			//console.log(data.length);
 
 		    if(data=="NO"){
 		       alert("請確認帳號和密碼");
@@ -33,13 +33,11 @@
 
 			else if(data=="T"){
 			   alert("歡迎登入 老師！");
-			   location.href="/first/teacher";
-
+			   location.href="/first/";
 			                   }
-
 			else if(data=="S"){
 			   alert("歡迎登入 學生！");
-			   location.href="/first/student";
+			    location.href="/first/";
 			    }
 
          }
