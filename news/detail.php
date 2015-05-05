@@ -36,20 +36,17 @@ include('../top.php');
 		$row = mysql_fetch_assoc($get_pic_qry);
 		
 		echo'
-				<h1 class="blue">標題</h1> 
-				
-				<h3>'.$row['topic'].'</h3>
-				<h1 class="blue">發佈時間</h1>   
-				<h3>'.$row['posttime'].'</h3>
-		        <h1 class="blue">內容</h1>		
-		        <h3>'.$row['article'].'</h3>	
-		        <h3 ><b class="blue">發佈者:</b>'.$row['who'].'</h3>
-				<input name="Submit" type="button" id="Submit" onClick="javascript:history.back(1)" value="返回" />
+				<h1 class="blue">標題</h1>
+				<h2 class="border">'.$row['topic'].'</h3>
+				<h1 class="blue">發佈時間</h1>
+				<h3 class="border">'.$row['posttime'].'___'.$row['who'].'</h3>
+		        <h1 class="blue">內容</h1>
+		        <h3 class="border">'.$row['article'].'</h3>	
+
+				<input name="Submit" type="button" class="BT" id="Submit" onClick="javascript:history.back(1)" value="返回" />
 
 		
 		         ';
-
-
 
 
 		?>

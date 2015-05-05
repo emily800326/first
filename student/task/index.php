@@ -23,7 +23,13 @@ include('../../top.php');
 <div class="topword">實驗任務<div>
 
 <div class="contact">
-join student task
+	<a href="./Physical"><div class="Bttask" >物理</div></a>
+	<a href="./Chemistry"><div class="Bttask">化學</div></a>
+	<a href="./Biology"><div class="Bttask">生物</div></a>
+	<a href="./Earthscience"><div class="Bttask">地球科學</div></a>
+	<a href="./AppliedScience"><div class="Bttask">應用科學</div></a>
+	<a href="./Math"><div class="Bttask">數學</div></a>
+	<a href="./Aasignstu"><div class="Bttasks">指定任務!</div></a>
 
 </div>
 

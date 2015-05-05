@@ -201,7 +201,7 @@ p.m_5 {
 
 }
 
-.Bttask{
+.Bttask ,.Bttasks{
     text-align: center;
     background-color:white;
     color:black;
@@ -220,6 +220,13 @@ p.m_5 {
 .Bttask:hover{
     text-align: center;
     background-color:#4EBDFF;
+    color:white;   
+    cursor: pointer;
+}
+
+.Bttasks:hover{
+    text-align: center;
+    background-color:#37C8AF;
     color:white;   
     cursor: pointer;
 }
