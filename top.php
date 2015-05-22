@@ -5,15 +5,15 @@
      $d_name='';
      $d_identify='';
 
-if( isset($_SESSION['user_id']) )//登入
+if( isset($_SESSION['user_id']) )//登入(老師學生都會看到的功能)
    { echo '<script type="text/javascript">
             $(document).ready(function (){
             	$("#Btlogin").hide();
             	$("#Btlogout").show();
-            	$("#Btuserinfo").show();		
+            	$("#Btuserinfo").show();
             })</script>';
 
-		   if ($_SESSION['identify']=="T"){//教師身分
+		   if ($_SESSION['identify']=="T"){  //教師身分
 		           echo '<script type="text/javascript">
 		            $(document).ready(function (){
 		            	$("#Btstuinfo").show();
@@ -32,22 +32,24 @@ if( isset($_SESSION['user_id']) )//登入
 		            })</script>'; 
            }
 
-     $d_user_id  =$_SESSION['user_id'];
-     $d_user_pw  =$_SESSION['user_pw'];
-     $d_name	 =$_SESSION['name'];
-     $d_identify =$_SESSION['identify'];
+     $d_user_id  =$_SESSION['user_id'];  //紀錄ID
+     $d_user_pw  =$_SESSION['user_pw'];  //紀錄密碼
+     $d_name	 =$_SESSION['name'];     //紀錄姓名
+     $d_identify =$_SESSION['identify']; //紀錄身分
      
    }
     else //未登入
     	   { echo '<script type="text/javascript">
             $(document).ready(function (){
-            	$("#Btlogin").show();
-            	$("#Btlogout").hide();	
-            	$("#Btuserinfo").hide();
-            	$("#Btstuinfo").hide();
-            	$("#Bteditask").hide();
-            	$("#Btgrade").hide();
-            	$("#Btupdate").hide();
+            	$("#Btlogin").show();       <!-- 登入 -->
+            	$("#Btlogout").hide();	    <!-- 登出 -->
+            	$("#Btuserinfo").hide();    <!-- 個人資料 -->
+            	$("#Btstuinfo").hide();     <!-- 編輯學生資料 -->
+            	$("#Bteditask").hide();     <!-- 編輯任務 -->
+            	$("#Btgrade").hide();       <!-- 評分 -->
+            	$("#Btupdate").hide();      <!-- 更新 -->
+            	$("#assignstu").hide(); 	<!-- 指定任務 -->
+            	$("#tasking").hide(); 	    <!-- 進行中的任務 -->
             })</script>';}
 
 
@@ -124,7 +126,7 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
 						  <li><a href="/first/teacher/grade" id="Btgrade">任務評分</a></li>
 						  <li><a href="/first/teacher/update" id="Btupdate">更新</a></li>
 						  <li><a href="/first/teacher/stuinfo" id="Btstuinfo">學生資料</a></li>
-						  <li><a href="/first/userinfo" id="Btuserinfo">';echo"".$d_name."";echo'</a></li>
+						  <li><a href="/first/userinfo" id="Btuserinfo"><span class="unread">!</span>';echo"".$d_name."";echo'</a></li>
 						  <li><a href="/first/register" class="active" id="Btlogin">登入</a></li>
 						  <li><a class="active CursorPointer" id="Btlogout">登出</a></li>
 						</ul>  
@@ -138,7 +140,8 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
 	<img src="/first/V/img/line.png"  />
 	<div class="clearfix"> </div>
 </div>
-	
+	<div id="spot-im-root"></div>
+<script type="text/javascript">!function(t,o,p){function e(){var t=o.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==o.location.protocol?"https":"http")+":"+p,o.body.appendChild(t)}t.spotId="832e152d8b6dbca96cf91ce526610ba1",t.spotName="",t.allowDesktop=!0,t.allowMobile=!1,t.containerId="spot-im-root",e()}(window.SPOTIM={},document,"//www.spot.im/embed/scripts/launcher.js");</script>
 
   ';
 

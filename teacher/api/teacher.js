@@ -1,6 +1,9 @@
 ﻿
 $(function() {
  //$('.address').ajaddress({ city: "台東縣", county: "池上鄉" });  
+    $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+ 
 
 $(document).ready(function(){
 

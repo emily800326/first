@@ -32,7 +32,7 @@ include('../../../top.php');
 <div class="topword">更新首頁<div>
 
 <div class="contact">
-更新首頁
+
 	<textarea  class="ckeditor" id="editor2" ></textarea>
 	 <!-- 隱藏更新上傳者 -->
 	 更新者：<input type="text" id="indexp" value="<?php echo "".$d_name."" ?>"  disabled>

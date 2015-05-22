@@ -17,5 +17,10 @@ td  {
 }
 
 .border{
-	border:8px #4472C8 double;
+	border: 2px #4472C8 dotted ;
+	padding:25px 20px;
+	margin-top:20px;
+	margin-bottom:15px;
+	overflow-y:hidden
+
 }

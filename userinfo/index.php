@@ -31,8 +31,8 @@ include('../top.php');
 	  
 	  <ul>
 	    <li><a href="#userinformation">個人資料</a></li>
-	    <li><a href="#learning">學習進度</a></li>
-	    <li><a href="#systemmessage">系統通知</a></li>
+	    <li><a href="#mytask">我的任務</a></li>
+	    <li><a href="#systemmessage"><d class="unread">!</d>系統通知</a></li>
 	  </ul>
 
 	  <div id="userinformation">
@@ -143,8 +143,8 @@ include('../top.php');
 	          <td >'.$row['recent_login_time'].' </td>
 	         </tr> 
         </table><br/>
-           <button  id="change_s_info">修改資料</button>
-           <button  id="changepw"  >變更密碼</button>
+           <button  id="change_s_info" class="BT2">修改資料</button>
+           <button  id="changepw"  class="BT2">變更密碼</button>
          ';
 
 
@@ -313,13 +313,13 @@ include('../top.php');
 
 	  </div>
 
-	  <div id="learning">
-	    <h2>個人功能A</h2>
+	  <div id="mytask">
+	    <h2>我的任務</h2>
 	    <p>施工中!!!!!!!!</p>
 	  </div>
 
 	  <div id="systemmessage">
-	    <h2>個人功能B</h2>
+	    <h2>系統通知</h2>
 	    <p>施工中!!!!!!!!</p>
 	  </div>
 

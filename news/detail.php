@@ -25,7 +25,7 @@ include('../top.php');
 <div class="topword">最新消息</div>
 <div class="contact">
 		<?php
-		
+
 		 $IIID=$_GET["id"];
 
 		 include('../M/db.php');
@@ -34,18 +34,19 @@ include('../top.php');
 		$get_pic_qry = mysql_query($get_pic_sql, $link) or die(mysql_error());
 		$total_records=mysql_num_rows($get_pic_qry); // 取得記錄筆數
 		$row = mysql_fetch_assoc($get_pic_qry);
-		
+
 		echo'
 				<h1 class="blue">標題</h1>
-				<h2 class="border">'.$row['topic'].'</h3>
+				<h3 class="border">'.$row['topic'].'</h3>
 				<h1 class="blue">發佈時間</h1>
 				<h3 class="border">'.$row['posttime'].'___'.$row['who'].'</h3>
 		        <h1 class="blue">內容</h1>
-		        <h3 class="border">'.$row['article'].'</h3>	
+		        <h3 class="border">'.$row['article'].'</h3>
+
 
 				<input name="Submit" type="button" class="BT" id="Submit" onClick="javascript:history.back(1)" value="返回" />
 
-		
+
 		         ';
 
 

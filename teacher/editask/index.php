@@ -31,8 +31,8 @@ include('../../top.php');
 
 <div class="contact">
 	<a href="./nowtask"><div class="Bttask" >觀看現有任務</div></a>
-	<a href="./lasttask"><div class="Bttask">編輯未完成任務</div></a>
 	<a href="./newtask"><div class="Bttask">編輯新任務</div></a>
+	<a href="./lasttask"><div class="Bttask">編輯未完成任務</div></a>
 	<a href="./assigntask"><div class="Bttask">設定指定任務</div></a>
 </div>
 

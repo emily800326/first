@@ -29,8 +29,8 @@ include('../../top.php');
 	<a href="./Earthscience"><div class="Bttask">地球科學</div></a>
 	<a href="./AppliedScience"><div class="Bttask">應用科學</div></a>
 	<a href="./Math"><div class="Bttask">數學</div></a>
-	<a href="./Aasignstu"><div class="Bttasks">指定任務!</div></a>
-
+	<a href="./Aasignstu"><div class="Bttasks" id="assignstu">指定任務!</div></a>
+	<a href="./tasking"><div class="Bttasking" id="tasking">進行中的任務</div></a>
 </div>
 
 

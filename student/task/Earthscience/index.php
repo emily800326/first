@@ -20,11 +20,11 @@
 <?php
 include('../../../top.php');
 ?>
-<div class="topword">實驗任務<div>
+<div class="topword">實驗任務-地球科學<div>
 
 <div class="contact">
 
-	<a href=""><div class="Bttask">地球科學</div></a>
+<input name="Submit" type="button" class="BT" id="Submit" onClick="javascript:history.back(1)" value="返回" />	
 
 
 </div>
