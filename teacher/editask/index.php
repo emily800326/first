@@ -27,7 +27,7 @@ include('../../top.php');
 
 ?>
 
-<div class="topword">編輯任務<div>
+<div class="topword">編輯任務</div>
 
 <div class="contact">
 	<a href="./nowtask"><div class="Bttask" >觀看現有任務</div></a>

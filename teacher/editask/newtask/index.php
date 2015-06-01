@@ -4,19 +4,20 @@
 <meta charset="utf-8">
 <link rel="icon" type="image/ico" href="/first/V/img/logo.png">
 <link rel="stylesheet" href="../../../V/css/style.css"/>
+<link rel="stylesheet" href="../../../V/css/newtask.css"/>
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/cupertino/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 <script src="../../api/teacher.js"></script>
 <script src="../../../V/js/jquery.stepify.js"></script>
+<script src="../../../V/js/html5uploader.js"></script>
 
-
+ 
 <title>科展初探系統</title>
 
 </head>
 
-<body>
-
+<body onload="new uploader('drop', 'status', '../../../C/uploader.php', 'list');">
 
 
 <?php
@@ -28,7 +29,7 @@ include('../../../top.php');
 		}
 ?>
 
-<div class="topword">編輯新任務<div>
+<div class="topword">編輯新任務</div>
 
 <div class="contact">
 			<div class="step">
@@ -40,7 +41,8 @@ include('../../../top.php');
 		   			</tr>
 		            <tr>
 		    			<th>科目:</th>
-		   				 <td ><select id="gender"><option value="Physical">物理</option>
+		   				 <td ><select id="gender"><option value="none"></option>
+		   				 						 <option value="Physical">物理</option>
 								   				 <option value="Chemistry">化學</option>
 								   				 <option value="Biology">生物</option>
 								   				 <option value="Earthscience">地球科學</option>
@@ -77,8 +79,20 @@ include('../../../top.php');
 		   				 <td><input type="text"  id="tools" ></td>
 		   			</tr>
 		   			<tr>
-		    			 <th>基本器材組合:</th>
-		   				 <td><input type="text"  id="toolsbox"  ></td>
+		    			 <th>器材組合圖:</th>
+		   				 <td> <!--<input type="text"  id="toolsbox" placeholder="圖片名稱" >
+		   				     <input type="file"  id="toolsphoto" >
+		   				     <button type="button" id="addfile"><img id="add" src="../../../V/img/add.png" style="max-width: 30%;"></button>  -->
+		   				     <div id="box">
+      					 		 <div id="drop"></div>
+   							 </div>
+   						 	<div id="status">此瀏覽器不支援拖拉上傳</div>
+  						 	<div id="list"></div>
+		   				 </td>
+		   				 <th></th>
+		   				 <td>  
+
+						</td>
 		   			</tr>
 				</table>
 			</div>
@@ -88,19 +102,19 @@ include('../../../top.php');
 				<table>
 		            <tr>
 		    			<th>研究目的一:</th>
-		   				 <td><input type="text"  id="research_purposes_1" ></td>
+		   				 <td><input type="text"  id="research_purposes_1" size="30" ></td>
 		   			</tr>
 		   			<tr>
 		    			 <th>實驗步驟一:</th>
-		   				 <td><input type="text"  id="research_step_1"  ></td>
+		   				 <td><textarea type="text"  id="research_step_1"  ></textarea></td>
 		   			</tr>
 		   			<tr>
 		    			 <th>討論一:</th>
-		   				 <td><input type="text"  id="discuss_1"  ></td>
+		   				 <td><textarea type="text"  id="discuss_1"  ></textarea></td>
 		   			</tr>
 		   			<tr>
 		    			 <th>結論一:</th>
-		   				 <td><input type="text"  id="conclusion_1"  ></td>
+		   				 <td><textarea type="text"  id="conclusion_1"  ></textarea></td>
 		   			</tr>
 				</table>
 			</div>
@@ -154,7 +168,6 @@ include('../../../top.php');
 
 </div>
 
-<input id="Btback" type="button"  class="BT" onClick="javascript:history.back(1)" value="返回" />
 
 
 <?php
@@ -184,4 +197,26 @@ include('../../../footer.php');
 			}
 		});
 	</script>
+	    <!-- 偵測瀏覽是否支援拖拉上傳以及拖拉變框變色 -->
+    <script language="javascript">
+    var drop = document.getElementById('drop'),
+        state = document.getElementById('status');
+
+    if (typeof window.FileReader === 'undefined') {
+        state.className = 'fail';
+    } else {
+        state.className = 'success';
+        state.innerHTML = '請將要上傳的圖片  逐步拖拉至框中';
+    }
+
+    drop.ondragover = function() {
+        this.className = 'hover';
+        return false;
+    };
+    drop.ondragend = function() {
+        this.className = '';
+        return false;
+    };
+    </script>
+
 </html>

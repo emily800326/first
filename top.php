@@ -114,9 +114,9 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
 				<a href="/first/index.php"><img src="/first/V/img/logo.png" ></a>
 			</div>
 			<div class="webname">
-				<font size="7"><b>科展初探系統</b></font>
+				<font size="6"><b>科展初探系統</b></font>
 			</div>
-				<div class="header-right">
+
 					<div class="menu">
 						<ul class="navigatoin">
 						  <li><a href="/first/index.php" class="active">首頁</a></li>
@@ -131,17 +131,17 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
 						  <li><a class="active CursorPointer" id="Btlogout">登出</a></li>
 						</ul>  
 					</div>
-				</div>					
+				
 		</div>
 	</div>
 </div>
 	
-<div class="line">
-	<img src="/first/V/img/line.png"  />
-	<div class="clearfix"> </div>
-</div>
+
+
+<!--聊天掛件
 	<div id="spot-im-root"></div>
-<script type="text/javascript">!function(t,o,p){function e(){var t=o.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==o.location.protocol?"https":"http")+":"+p,o.body.appendChild(t)}t.spotId="832e152d8b6dbca96cf91ce526610ba1",t.spotName="",t.allowDesktop=!0,t.allowMobile=!1,t.containerId="spot-im-root",e()}(window.SPOTIM={},document,"//www.spot.im/embed/scripts/launcher.js");</script>
+<script type="text/javascript">!function(t,o,p){function e(){var t=o.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==o.location.protocol?"https":"http")+":"+p,o.body.appendChild(t)}t.spotId="832e152d8b6dbca96cf91ce526610ba1",t.spotName="",t.allowDesktop=!0,t.allowMobile=!1,t.containerId="spot-im-root",e()}(window.SPOTIM={},document,"//www.spot.im/embed/scripts/launcher.js");</script> -->
+
 
   ';
 

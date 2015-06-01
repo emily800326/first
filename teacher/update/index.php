@@ -27,7 +27,7 @@ include('../../top.php');
 
 ?>
 
-<div class="topword">更新<div>
+<div class="topword">更新</div>
 
 <div class="contact">
 	<a href="./updateindex"><div class="Bttask" >更新首頁</div></a>

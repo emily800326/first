@@ -27,7 +27,7 @@ include('../../../top.php');
 
 
 
-<div class="topword">指定任務<div>
+<div class="topword">指定任務</div>
 
 <div class="contact">
 assigntask

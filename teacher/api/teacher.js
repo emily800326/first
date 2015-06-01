@@ -251,7 +251,7 @@ $("#Btaddall").click(function(){
 
 });
 
-   $("#postnews").click(function(){
+$("#postnews").click(function(){
    	
    	if($("#newsp").val() 	        == "" ||
 	$("#topic").val() 	    		== "" ){
@@ -308,6 +308,43 @@ $("#Btaddall").click(function(){
        })
 
    })
+
+  var counter = 2;
+
+    $("#addfile").click(function () {
+
+      	if(counter>20){
+                  alert("資料欄位過大!!!");
+                  return false;
+      	}
+
+      	var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
+
+      	newTextBoxDiv.after().html( '<label>欄位 : </label>' +
+                                   '<input type="text" name="textbox' + counter +
+      	                           '"id="textbox' + counter + '" value="" size=80 >' );
+
+
+      	newTextBoxDiv.after().html( '<td></label>' +
+                                   '<input type="text" name="textbox' + counter +
+      	                           '"id="textbox' + counter + '" value="" size=80 >' );
+
+		   			/*	 <td><input type="text"  id="toolsbox" placeholder="圖片名稱" >
+		   				     <input type="file"  id="toolsphoto" >
+		   				     <button type="button" id="addfile"><img id="add" src="../../../V/img/add.png" style="max-width: 30%;"></button>
+		   				 </td> */
+
+      	newTextBoxDiv.appendTo("#TextBoxesGroup");
+      	counter++;
+
+     });
+
+    $("#addfile").click(function () {
+
+        console.log("echo echo");
+
+
+             });
 
 
 

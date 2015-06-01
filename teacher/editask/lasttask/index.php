@@ -26,7 +26,7 @@ include('../../../top.php');
 		}	
 ?>
 
-<div class="topword">編輯未完成任務<div>
+<div class="topword">編輯未完成任務</div>
 
 <div class="contact">
 lasttask
