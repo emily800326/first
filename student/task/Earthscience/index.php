@@ -20,7 +20,7 @@
 <?php
 include('../../../top.php');
 ?>
-<div class="topword">實驗任務-地球科學<div>
+<div class="topword">實驗任務-地球科學</div>
 
 <div class="contact">
 

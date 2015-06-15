@@ -19,7 +19,7 @@
 
 <?php
 include('../../top.php');
-		if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="T"){ 
+		if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="A"&&$_SESSION['identify']!="T") { 
 		   //因為需要用到JS所以不能放在head之前
 			echo "<script>$('body').html('');alert('請先登入系統，確認權限！');window.location.href='/first/register/'</script>";
 
@@ -32,7 +32,7 @@ include('../../top.php');
 <div class="contact">
 	<a href="./nowtask"><div class="Bttask" >觀看現有任務</div></a>
 	<a href="./newtask"><div class="Bttask">編輯新任務</div></a>
-	<a href="./lasttask"><div class="Bttask">編輯未完成任務</div></a>
+	<!--<a href="./lasttask"><div class="Bttask">編輯未完成任務</div></a>-->
 	<a href="./assigntask"><div class="Bttask">設定指定任務</div></a>
 </div>
 

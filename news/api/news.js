@@ -24,50 +24,39 @@ $(document).ready(function(){
 		};
 
 		var opt;
-
 		opt={
 	           "oLanguage":setLanguage,
 	           "lengthMenu": [[25, 50, 100, -1], [25, 50, 100, "全部"]],
 	            "bPaginate":true, //開起換頁
                 //"sScrollY":"380px", //設定成拉頁y
                 //"sScrollX":"400px", //設定成拉頁x
-               // "sWidth":"5%",
+               // "sWidth":"5%",              
 	    };
+
 
 		$("#table_news").dataTable(opt);
 
 
-      var table = $('#table_news').DataTable();
-		$('#container').css( 'display', 'block' );
-
-
-
-
-     });
-
-
-
-
-$(document).ready(function(){//多搜尋列表
-    $('#table_news').dataTable().columnFilter({
-    	order: [ 0, "desc" ],
-    	sPlaceHolder: "head:after",
-			aoColumns: [
-						{ type: "text" },//time
-						{ type: "text" },//topic
-						{ type: "text" },//who
-		     			]
-
-		});
-
-
+        var table = $('#table_news').DataTable();
+		//$('#container').css( 'display', 'block' );
+		 /* $('#table_news').dataTable( {
+              //跟数组下标一样，第一列从0开始，这里表格初始化时，第四列默认降序
+                "order": [[ 0, "desc" ]]
+              } );*/
    });
-
-
-
 
 
 
 
  });
 
+
+function delCheck() {
+    var flag = window.confirm("你確認要刪除嗎?");
+    if (flag == true) {
+
+    } else if (flag == false) {
+        window.event.returnValue = false;
+    }
+
+}

@@ -39,6 +39,10 @@
 			   alert("歡迎登入 學生！");
 			    location.href="/first/";
 			    }
+			else if(data=="A"){
+			   alert("歡迎登入 管理員！");
+			    location.href="/first/";
+			    }
 
          }
 

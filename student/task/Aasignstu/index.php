@@ -20,7 +20,7 @@
 <?php
 include('../../../top.php');
 ?>
-<div class="topword">指定任務<div>
+<div class="topword">指定任務</div>
 
 <div class="contact">
 <input name="Submit" type="button" class="BT" id="Submit" onClick="javascript:history.back(1)" value="返回" />	

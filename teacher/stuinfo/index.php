@@ -26,7 +26,7 @@
 
 <?php
 		include('../../top.php');
-		if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="T"){ 
+if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="A"&&$_SESSION['identify']!="T") { 
 		   //因為需要用到JS所以不能放在head之前
 			echo "<script>$('body').html('');alert('請先登入系統，確認權限！');window.location.href='/first/register/'</script>";
 
@@ -96,7 +96,7 @@
 					              }
 	                  echo'</td>
                             <td>'.$row['email'].'</td>
-                            <td><button onclick="delCheck()"><a href=../api/delete.php?id='.$row['id'].' >刪除</a></button></td>
+                            <td><button onclick="delCheck()"><a href=../../C/delete.php?id='.$row['id'].'&database=user_info >刪除</a></button></td>
                         </tr>';
 
                  }
@@ -142,7 +142,7 @@
    			</tr>			
    			<tr>
     			<th>年級:</th>
-   				 <td><input type="text"  id="grade"  ></td>
+   				 <td><input type="number"  id="grade"  min=1 max=12></td>
    			</tr> 
     		<tr>
     			<th>班級:</th>

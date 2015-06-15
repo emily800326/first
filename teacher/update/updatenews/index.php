@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <link rel="icon" type="image/ico" href="/first/V/img/logo.png">
 <link rel="stylesheet" href="../../../V/css/style.css"/>
+<link rel="stylesheet" href="../../../V/css/update.css"/>
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/cupertino/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
@@ -21,20 +22,19 @@
 
 <?php
 include('../../../top.php');
-		if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="T"){ 
+if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="A"&&$_SESSION['identify']!="T") { 
 		   //因為需要用到JS所以不能放在head之前
 			echo "<script>$('body').html('');alert('請先登入系統，確認權限！');window.location.href='/first/register/'</script>";
 
 		}
 ?>
 
-<div class="topword">更新最新消息<div>
+<div class="topword">更新最新消息</div>
 
 <div class="contact">
-    標題：<input type="text" id="topic" size=100 value="">
+    標題：<input type="text" id="topic"  value="">
     <textarea  class="ckeditor" id="editor1" ></textarea>
-	 <!-- 隱藏更新上傳者 -->
-	 <br/>更新者：<input type="text" id="newsp" value="<?php echo "".$d_name."" ?>"  disabled>
+
 	 <button id="postnews"  class="BT" >送出</button>    
 	<input id="Btback" type="button"  class="BT" onClick="javascript:history.back(1)" value="返回" />
 </div>

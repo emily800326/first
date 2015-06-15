@@ -13,13 +13,16 @@ if( isset($_SESSION['user_id']) )//登入(老師學生都會看到的功能)
             	$("#Btuserinfo").show();
             })</script>';
 
-		   if ($_SESSION['identify']=="T"){  //教師身分
+		   if ($_SESSION['identify']=="T"){
+		        //教師身分
 		           echo '<script type="text/javascript">
 		            $(document).ready(function (){
 		            	$("#Btstuinfo").show();
 		            	$("#Bteditask").show();
 		            	$("#Btgrade").show();
 		            	$("#Btupdate").show();
+		            	$("#dele1").hide();
+		            	$(".dele2").hide();
 		            })</script>';
 
 		   }elseif ($_SESSION['identify']=="S") {//學生身分
@@ -29,14 +32,26 @@ if( isset($_SESSION['user_id']) )//登入(老師學生都會看到的功能)
 		                $("#Bteditask").hide();
 		            	$("#Btgrade").hide();
 		            	$("#Btupdate").hide();
-		            })</script>'; 
+		            	$("#dele1").hide();
+		            	$(".dele2").hide();
+		            })</script>';
+           }elseif ($_SESSION['identify']=="A") {//管理員身分
+		   	        echo '<script type="text/javascript">
+		            $(document).ready(function (){
+		            	$("#Btstuinfo").show();
+		            	$("#Bteditask").show();
+		            	$("#Btgrade").show();
+		            	$("#Btupdate").show();
+		            	$("#dele1").show();//新聞的刪除欄位
+		            	$(".dele2").show();//新聞的刪除按鈕
+		            })</script>';
            }
 
      $d_user_id  =$_SESSION['user_id'];  //紀錄ID
      $d_user_pw  =$_SESSION['user_pw'];  //紀錄密碼
      $d_name	 =$_SESSION['name'];     //紀錄姓名
      $d_identify =$_SESSION['identify']; //紀錄身分
-     
+
    }
     else //未登入
     	   { echo '<script type="text/javascript">
@@ -56,36 +71,36 @@ if( isset($_SESSION['user_id']) )//登入(老師學生都會看到的功能)
 echo'
 <script type="text/javascript">
 
-$(document).ajaxError(function(e, jqxhr, settings, exception) {  
+$(document).ajaxError(function(e, jqxhr, settings, exception) {
 
-  if (jqxhr.readyState == 0 || jqxhr.status == 0) { 
-               
+  if (jqxhr.readyState == 0 || jqxhr.status == 0) {
+
     return;
-  }  
-});  
+  }
+});
 
  $(document).ready(function (){
 
-    
+
  	<!-- script-nav -->
 	$("span.menu").click(function(){
 		$("ul.navigatoin").slideToggle("slow" , function(){
 		});
-	});			
+	});
 
     <!-- logout -->
 	$("#Btlogout").click(function(){
-		
+
 		$.ajax({
             url: "http://140.115.126.235/first/register/api/register.php",
             type: "post",
             datatype:"json",
             data:
-		 {		    
+		 {
 		    action:"logout"
 		 },
-            
-            error:function(xhr, ajaxOptions, thrownError){ 
+
+            error:function(xhr, ajaxOptions, thrownError){
             	 console.log(xhr.status);
                  },
 
@@ -97,12 +112,41 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
               					     }
                                     }
           });
-	});	
-	
-	
+	});
+
+
 
 
 	})
+
+
+	//紀錄使用者情況
+		function user_action( action, point_id) {
+			if( "$d_user_id" != null){
+
+				console.log( action, point_id);  //印出傳送資料
+
+
+				//利用XMLHttpRequest方法傳值(好用可以學起來！不用換頁傳值！)
+				var xhr = new XMLHttpRequest();
+		        var url = "/first/C/history.php"; //接值的網頁
+		        var params = "action=" + action + "&&point_id=" + point_id;  
+
+		        xhr.open("POST", url, true);
+		        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		        xhr.onreadystatechange = function() {
+		        	if(xhr.readyState == 4 && xhr.status == 200) {
+		             	var return_data = xhr.responseText;
+		            }
+		        }
+		        xhr.send(params);
+			}
+		}
+
+
+
+
+
 
 </script>
 
@@ -118,29 +162,26 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
 			</div>
 
 					<div class="menu">
-						<ul class="navigatoin">
-						  <li><a href="/first/index.php" class="active">首頁</a></li>
-						  <li><a href="/first/news">最新消息</a></li>
-						  <li><a href="/first/student/task">實驗任務</a></li>
-						  <li><a href="/first/teacher/editask" id="Bteditask">編輯任務</a></li>
-						  <li><a href="/first/teacher/grade" id="Btgrade">任務評分</a></li>
-						  <li><a href="/first/teacher/update" id="Btupdate">更新</a></li>
-						  <li><a href="/first/teacher/stuinfo" id="Btstuinfo">學生資料</a></li>
-						  <li><a href="/first/userinfo" id="Btuserinfo"><span class="unread">!</span>';echo"".$d_name."";echo'</a></li>
-						  <li><a href="/first/register" class="active" id="Btlogin">登入</a></li>
-						  <li><a class="active CursorPointer" id="Btlogout">登出</a></li>
-						</ul>  
+						<ul class="navigatoin"> ';
+		echo "			  <li><a href='/first/index.php' class='active' onclick='user_action(\"科展系統首頁\",this.href);'>首頁</a></li>
+						  <li><a href='/first/news' 
+						  onclick='user_action(\"最新消息\",this.href);'>最新消息</a></li>
+						  <li><a href='/first/student/task' 
+						  onclick='user_action(\"實驗任務\",this.href);'>實驗任務</a></li>
+						  <li><a href='/first/teacher/editask' id='Bteditask' onclick='user_action(\"編輯任務\",this.href);'>編輯任務</a></li>
+						  <li><a href='/first/teacher/grade' id='Btgrade' onclick='user_action(\"任務評分\",this.href);'>任務評分</a></li>
+						  <li><a href='/first/teacher/update' id='Btupdate' onclick='user_action(\"系統\",this.href);'>系統</a></li>
+						  <li><a href='/first/teacher/stuinfo' id='Btstuinfo' onclick='user_action(\"學生資料\",this.href);'>學生資料</a></li>
+						  <li><a href='/first/userinfo' id='Btuserinfo' onclick='user_action(\"個人資料\",this.href);'><span class='unread'>!</span>".$d_name."</a></li>
+						  <li><a href='/first/register' class='active' id='Btlogin'>登入</a></li>
+						  <li><a class='active CursorPointer' id='Btlogout' onclick='user_action(\"登出\",this.id);'>登出</a></li> ";
+			echo'		</ul>
 					</div>
-				
+
 		</div>
 	</div>
 </div>
-	
 
-
-<!--聊天掛件
-	<div id="spot-im-root"></div>
-<script type="text/javascript">!function(t,o,p){function e(){var t=o.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==o.location.protocol?"https":"http")+":"+p,o.body.appendChild(t)}t.spotId="832e152d8b6dbca96cf91ce526610ba1",t.spotName="",t.allowDesktop=!0,t.allowMobile=!1,t.containerId="spot-im-root",e()}(window.SPOTIM={},document,"//www.spot.im/embed/scripts/launcher.js");</script> -->
 
 
   ';

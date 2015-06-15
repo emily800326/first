@@ -239,8 +239,11 @@ switch($_POST["action"]){
 		     echo 'T';
 
           }
-		  else {
+		  elseif($row['identify']=='S') {
 		     echo "S";
+		  }
+		   elseif($row['identify']=='A') {
+		     echo "A";
 		  }
 	  }
 	  else{

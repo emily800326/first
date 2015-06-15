@@ -19,7 +19,7 @@
 
 <?php
 include('../../top.php');
-		if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="T"){ 
+if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="A"&&$_SESSION['identify']!="T") { 
 		   //因為需要用到JS所以不能放在head之前
 			echo "<script>$('body').html('');alert('請先登入系統，確認權限！');window.location.href='/first/register/'</script>";
 
@@ -27,11 +27,12 @@ include('../../top.php');
 
 ?>
 
-<div class="topword">更新</div>
+<div class="topword">系統</div>
 
 <div class="contact">
 	<a href="./updateindex"><div class="Bttask" >更新首頁</div></a>
 	<a href="./updatenews"><div class="Bttask">更新最新消息</div></a>
+	<a href="./sendsystem"><div class="Bttask">系統站內信</div></a>
 </div>
 
 

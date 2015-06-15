@@ -22,26 +22,32 @@
 
 <?php
 include('../../../top.php');
-		if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="T"){
+if(!isset($_SESSION['user_id'])||$_SESSION['identify']!="A"&&$_SESSION['identify']!="T") { 
 		   //因為需要用到JS所以不能放在head之前
 			echo "<script>$('body').html('');alert('請先登入系統，確認權限！');window.location.href='/first/register/'</script>";
 
-		}
-?>
+		} ?>
 
 <div class="topword">編輯新任務</div>
 
+
+
 <div class="contact">
-			<div class="step">
+
+<button id="newtask1" class="BT2">新增任務導引</button>
+<button id="newtask2" class="BT2">新增任務學習單</button>
+	
+	<div id="taskguide">
+			<div class="step"></br>
 			 <h2 class="writemode">題目資訊</h2>
 				<table>
-		            <tr>
-		    			<th>題目名稱:</th>
-		   				 <td><input type="text"  id="user_id" ></td>
+		          <tr>
+		    		<th>題目名稱:</th>
+		   				 <td><input type="text"  id="tasktitle" size:7></td>
 		   			</tr>
 		            <tr>
 		    			<th>科目:</th>
-		   				 <td ><select id="gender"><option value="none"></option>
+		   				 <td ><select id="subject">
 		   				 						 <option value="Physical">物理</option>
 								   				 <option value="Chemistry">化學</option>
 								   				 <option value="Biology">生物</option>
@@ -52,26 +58,27 @@ include('../../../top.php');
 		   			</tr>
 		   			<tr>
 		    			 <th>題目來源:</th>
-		   				 <td class="border"><input type="checkbox" name="from[]" value="book" >教科書<br>
-				   			 <input type="checkbox" name="from[]" value="inschool">校內科展<br>
-				   			 <input type="checkbox" name="from[]" value="outschool">校外科展<br></td>
+		   				 <td >
+		   				 <input type="checkbox"  name="tfrom[]" value="教科書">教科書<br>
+				   	     <input type="checkbox" name="tfrom[]" value="校內科展">校內科展<br>
+				   		<input type="checkbox" name="tfrom[]" value="校外科展">校外科展<br></td>
 		   			</tr>
 		   			<tr>
 		    			<th>相關單元:</th>
-		   				 <td><input type="text"  id="name"  ></td>
+		   				 <td><input type="text"  id="relate"  ></td>
 		   			</tr>
 					<tr>
 		    			<th>選擇探究等級:</th>
-		   				 <td  class="border"><input type="checkbox" name="degree[]" value="allquestion" checked>給予實驗問題<br>
-				   			 <input type="checkbox" name="degree[]" value="allthing">給予全部實驗器材<br>
-				   			 <input type="checkbox" name="degree[]" value="allstep">給予全部實驗步驟<br>
-				   			 <input type="checkbox" name="degree[]]" value="partthing">給予部分實驗器材<br>
-		                     <input type="checkbox" name="degree[]" value="partstep" >給予部分實驗步驟<br> </td>
+		   				 <td ><input type="checkbox" name="degree[]" value="給予實驗問題" checked >給予實驗問題<br>
+				   			 <input type="checkbox" name="degree[]" value="給予全部實驗器材">給予全部實驗器材<br>
+				   			 <input type="checkbox" name="degree[]" value="給予全部實驗步驟">給予全部實驗步驟<br>
+				   			 <input type="checkbox" name="degree[]" value="給予部分實驗器材">給予部分實驗器材<br>
+		                     <input type="checkbox" name="degree[]" value="給予部分實驗步驟" >給予部分實驗步驟<br> </td>
 		   			</tr>
 				</table>
 			</div>
 
-			<div class="step">
+			<div class="step"></br>
 			<h2 class="writemode">器材提示</h2>
 				<table>
 		            <tr>
@@ -80,14 +87,14 @@ include('../../../top.php');
 		   			</tr>
 		   			<tr>
 		    			 <th>器材組合圖:</th>
-		   				 <td> <!--<input type="text"  id="toolsbox" placeholder="圖片名稱" >
-		   				     <input type="file"  id="toolsphoto" >
-		   				     <button type="button" id="addfile"><img id="add" src="../../../V/img/add.png" style="max-width: 30%;"></button>  -->
+		   				 <td> 
 		   				     <div id="box">
       					 		 <div id="drop"></div>
    							 </div>
    						 	<div id="status">此瀏覽器不支援拖拉上傳</div>
   						 	<div id="list"></div>
+  						 	<div id="flist" style="visibility:hidden;"></div> 
+  						 	
 		   				 </td>
 		   				 <th></th>
 		   				 <td>  
@@ -97,7 +104,7 @@ include('../../../top.php');
 				</table>
 			</div>
 
-			<div class="step">
+			<div class="step"></br>
 			<h2 class="writemode">研究問題一</h2>
 				<table>
 		            <tr>
@@ -119,49 +126,74 @@ include('../../../top.php');
 				</table>
 			</div>
 
-			<div class="step">
+			<div class="step"></br>
 			<h2 class="writemode">研究問題二</h2>
 				<table>
 		            <tr>
 		    			<th>研究目的二:</th>
-		   				 <td><input type="text"  id="research_purposes_2" ></td>
+		   				 <td><input type="text"  id="research_purposes_2" size="30" ></td>
 		   			</tr>
 		   			<tr>
 		    			 <th>實驗步驟二:</th>
-		   				 <td><input type="text"  id="research_step_2"  ></td>
+		   				 <td><textarea type="text"  id="research_step_2"  ></textarea></td>
 		   			</tr>
 		   			<tr>
 		    			 <th>討論二:</th>
-		   				 <td><input type="text"  id="discuss_2"  ></td>
+		   				 <td><textarea type="text"  id="discuss_2"  ></textarea></td>
 		   			</tr>
 		   			<tr>
 		    			 <th>結論二:</th>
-		   				 <td><input type="text"  id="conclusion_2"  ></td>
+		   				 <td><textarea type="text"  id="conclusion_2"  ></textarea></td>
 		   			</tr>
 				</table>
 			</div>
 
-			<div class="step">
+			<div class="step"></br>
 			<h2 class="writemode">研究問題三</h2>
 				<table>
 		            <tr>
 		    			<th>研究目的三:</th>
-		   				 <td><input type="text"  id="research_purposes_3" ></td>
+		   				 <td><input type="text"  id="research_purposes_3" size="30" ></td>
 		   			</tr>
 		   			<tr>
 		    			 <th>實驗步驟三:</th>
-		   				 <td><input type="text"  id="research_step_3"  ></td>
+		   				 <td><textarea type="text"  id="research_step_3"  ></textarea></td>
 		   			</tr>
 		   			<tr>
 		    			 <th>討論三:</th>
-		   				 <td><input type="text"  id="discuss_3"  ></td>
+		   				 <td><textarea type="text"  id="discuss_3"  ></textarea></td>
 		   			</tr>
 		   			<tr>
 		    			 <th>結論三:</th>
-		   				 <td><input type="text"  id="conclusion_3"  ></td>
+		   				 <td><textarea type="text"  id="conclusion_3"  ></textarea></td>
 		   			</tr>
 				</table>
+				 <!-- 隱藏更新上傳者 -->
 			</div>
+
+	</div> <!-- end新增任務導引 -->
+
+    <div id="tasklearn">
+     任務學習單
+    </div> <!-- end新增任務學習單 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

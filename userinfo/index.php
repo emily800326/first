@@ -30,9 +30,9 @@ include('../top.php');
 	<div id="tabs">
 	  
 	  <ul>
-	    <li><a href="#userinformation">個人資料</a></li>
-	    <li><a href="#mytask">我的任務</a></li>
-	    <li><a href="#systemmessage"><d class="unread">!</d>系統通知</a></li>
+	    <li><a href="#userinformation" onclick="user_action('觀看個人資料',this.href);">個人資料</a></li>
+	    <li><a href="#mytask" onclick="user_action('我的任務',this.href);">我的任務</a></li>
+	    <li><a href="#systemmessage" onclick="user_action('系統通知',this.href);"><d class="unread">!</d>系統通知</a></li>
 	  </ul>
 
 	  <div id="userinformation">
@@ -47,7 +47,7 @@ include('../top.php');
        $total_records=mysql_num_rows($get_pic_qry); // 取得記錄筆數
        $row = mysql_fetch_assoc($get_pic_qry);
        
-        if ($d_identify=="T") {
+        if ($d_identify=="T"||$d_identify=="A") {
         	echo '
         <br/> 
         <table class="usert_table">
@@ -62,6 +62,8 @@ include('../top.php');
                 echo '<td >老師</td>';
               }else if($row['identify']=="S"){
                  echo '<td >學生</td>';
+              }else if($row['identify']=="A"){
+                 echo '<td >管理員</td>';
               }
 	echo'   </tr>
 	        <tr>
@@ -92,10 +94,10 @@ include('../top.php');
 	          <th align="right" ><p>最後登入時間：</p></th>
 	          <td >'.$row['recent_login_time'].' </td>
 	         </tr> 
-        </table><br/>
-           <button  id="change_t_info"  class="BT2">修改資料</button>
-           <button  id="changepw"   class="BT2">變更密碼</button>
-        ';
+        </table><br/>';
+   echo"  <button  id='change_t_info'  class='BT2' onclick='user_action(\"修改個人資料\",this.id);' >修改資料</button>
+           <button  id='changepw'   class='BT2' onclick='user_action(\"變更密碼\",this.id);'>變更密碼</button>";
+        
         } elseif($d_identify=="S") {
 
         	echo '
@@ -112,6 +114,8 @@ include('../top.php');
                 echo '<td >老師</td>';
               }else if($row['identify']=="S"){
                  echo '<td >學生</td>';
+              }else if($row['identify']=="A"){
+                 echo '<td >管理員</td>';
               }
 	echo'   </tr>
 	        <tr>
@@ -142,10 +146,10 @@ include('../top.php');
 	          <th align="right" ><p>最後登入時間：</p></th>
 	          <td >'.$row['recent_login_time'].' </td>
 	         </tr> 
-        </table><br/>
-           <button  id="change_s_info" class="BT2">修改資料</button>
-           <button  id="changepw"  class="BT2">變更密碼</button>
-         ';
+        </table><br/>';
+    echo "       <button  id='change_s_info' class='BT2' onclick='user_action(\"修改個人資料\",this.id);'>修改資料</button>
+           <button  id='changepw'  class='BT2' onclick='user_action(\"變更密碼\",this.id);'>變更密碼</button>";
+         
 
 
         }
@@ -166,6 +170,8 @@ include('../top.php');
                 echo '<td >老師</td>';
               }else if($row['identify']=="S"){
                  echo '<td >學生</td>';
+              }else if($row['identify']=="A"){
+                 echo '<td >管理員</td>';
               }       
 		echo'</tr>
 	        <tr>
@@ -242,6 +248,8 @@ include('../top.php');
                 echo '<td >老師</td>';
               }else if($row['identify']=="S"){
                  echo '<td >學生</td>';
+              }else if($row['identify']=="A"){
+                 echo '<td >管理員</td>';
               }       
 		echo'</tr>
 	        <tr>

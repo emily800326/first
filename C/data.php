@@ -90,21 +90,28 @@ switch($_POST["action"]){
 
  	case "saveindex": //把文章存入首頁
 		    $article        =$_POST['data'];
-	        $who		    =$_POST['indexp'];
-	        $sql="INSERT INTO indexpage(article,who)VALUES('".$article."','".$who."')";
+	        $sql="INSERT INTO indexpage(article,who)VALUES('".$article."','".$_SESSION['name']."')";
 			mysql_query($sql);
 	break;
 
  	case "savenews": //把文章存入最新消息
 		    $article        =$_POST['data'];
-	        $who		    =$_POST['newsp'];
 	        $topic		    =$_POST['topic'];
-	        $sql="INSERT INTO news(article,who,topic)VALUES('".$article."','".$who."','".$topic."')";
+	        $sql="INSERT INTO news(article,who,topic)VALUES('".$article."','".$_SESSION['name']."','".$topic."')";
 			mysql_query($sql);
 	break;
 
 
+ 	case "savemessage": //傳送訊息
 
+	        $topic		    =$_POST['topic'];
+	        $mtype          =$_POST['mtype'];
+		    $content        =$_POST['data'];
+			$mtowho         =$_POST['mtowho'];
+
+	        $sql="INSERT INTO message(topic,mtype,content,mperson,mtowho)VALUES('".$topic."','".$mtype."','".$content."','".$_SESSION['name']."','".$mtowho."')";
+			mysql_query($sql);
+	break;
 	
 
 

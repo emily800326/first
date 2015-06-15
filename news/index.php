@@ -34,6 +34,7 @@ include('../top.php');
                 <th >發布時間</th>
                 <th >標題</th>
                 <th >發佈者</th>
+                <th id="dele1">刪除</th>
 		</tr>
         </thead>
 
@@ -50,9 +51,10 @@ include('../top.php');
 
 		echo '
 				<tr>
-		        <td>'.$row['posttime'].'</td>
-		        <td><a href=../news/detail.php?id='.$row['id'].' >'.$row['topic'].'</td>
-		        <td>'.$row['who'].'</td>			                
+		        <td>'.$row['posttime'].'</td>';
+		echo"   <td><a href=../news/detail.php?id=".$row['id']." onclick='user_action(\"觀看最新消息\",this.href);'>".$row['topic']."</td>";
+		echo'       <td>'.$row['who'].'</td>	
+		        <td class="dele2"><button  onclick="delCheck()"><a href=../C/delete.php?id='.$row['id'].'&database=news   >刪除</a></button></td>		                
 		        </tr>
 		      
 		      ';
@@ -72,4 +74,5 @@ include('../footer.php');
 
 
 </body>
+
 </html>

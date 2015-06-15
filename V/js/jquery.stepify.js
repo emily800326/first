@@ -23,11 +23,23 @@
 				cssclass:'btn-submit'
 
 			},
+			SeetaskBtn : {
+				text:'確認資料',
+				id:'see',
+				cssclass:'btn-see'
+
+			},
+			cancelBtn : {
+				text:'修改',
+				id:'cancel',
+				cssclass:'btn-see'
+
+			},
 			navBtnContainerClass : 'nav-btn-container',
 			mainContainerClass : 'stepify-elem-container',
-			btnAlign:'center', //Specified positioning of the buttons. Accepts values 'left', 'right', and 'center'.
-			prevHooks : {}, //An map of functions that you want to get executed on clicking prev for a step.
-			nextHooks : {}, //An map of functions that you want to get executed on clicking next for a step
+			btnAlign:'center',
+			prevHooks : {},
+			nextHooks : {},
 		}
 
 		function bindHooks(){
@@ -117,7 +129,10 @@
 
 		var prevBtnStr = '<div class="btn '+opt.prevBtn.cssClass+'">'+opt.prevBtn.text+'</div>',
 		nextBtnStr = '<div class="btn '+opt.nextBtn.cssClass+'">'+opt.nextBtn.text+'</div>',
-		submitBtnStr = '<input type="submit" class="btn btn-info '+opt.submitBtn.cssClass+'" value="'+opt.submitBtn.text+'" ></input>',
+		seeBtnStr = '<div id="sendseetask" class="btn btn-seetask '+opt.SeetaskBtn.cssClass+'">'+opt.SeetaskBtn.text+'</div>',
+		submitBtnStr = '<input type="submit" id="sendnewtask" class="btn btn-info '+opt.submitBtn.cssClass+'" value="'+opt.submitBtn.text+'" ></input>',
+		cancelBtnStr = '<div id="canceltask" class="btn btn-seetask '+opt.cancelBtn.cssClass+'">'+opt.cancelBtn.text+'</div>',
+
 		divStr = '<div></div>';
 
 		var stepContainers = 0,
@@ -147,11 +162,14 @@
 
 			if(index===0){
 				$stepContainer.children().find('.'+opt.prevBtn.cssClass).remove();
+
 			}else{
 				if(index===opt.distribution.length-1){
 
 					//This is the last step in the process
 					$stepContainer.children().find('.'+opt.nextBtn.cssClass).remove();
+					$stepContainer.children('.nav-btn-container').append(seeBtnStr);
+					$stepContainer.children('.nav-btn-container').append(cancelBtnStr);
 					$stepContainer.children('.nav-btn-container').append(submitBtnStr);
 
 				}
